@@ -25,7 +25,7 @@ On the expansive subject of [*HTML Modules*](https://github.com/WICG/webcomponen
 
 How do these compare?
 
-+ One is *authoring and delivering HTML in HTML*...
++ **One is *authoring and delivering HTML in HTML*...**
     
     *File: /bundle.html*
 
@@ -43,7 +43,7 @@ How do these compare?
 
     *See also: [[proposal - **src** attribute]](https://discourse.wicg.io/t/add-src-attribute-to-template/2721), [[proposal - **src** attribute]](https://github.com/whatwg/html/issues/2791)*
 
-    ...and the other is *authoring and delivering HTML with JavaScript*
+    **...and the other is *authoring and delivering HTML with JavaScript***
 
     *File: /import.html*
 
@@ -65,7 +65,7 @@ How do these compare?
     </script>
     ```
 
-+ One provides for consuming the imported HTML *both in JavaScript and in HTML*...
++ **One provides for consuming the imported HTML *both in JavaScript and in HTML*...**
     
     *In JavaScript - See [API](../html-modules#api)*
 
@@ -88,7 +88,7 @@ How do these compare?
 
     *See also: [[HTML Modules - direction]](https://github.com/WICG/webcomponents/issues/863)*
 
-    ...and the other remains based *only in JavaScript*
+    **...and the other remains based *only in JavaScript***
 
     ```html
     <body>
@@ -99,7 +99,7 @@ How do these compare?
     </body>
     ```
 
-+ One makes for *lazy-loading and load events*, as with elements like `<img>`...
++ **One makes for *lazy-loading and load events*, as with elements like `<img>`...**
 
     *JavaScript - See [events](../html-modules#module-events)*
     
@@ -112,7 +112,7 @@ How do these compare?
     </body>
     ```  
 
-    ...and the other simply does not.
+    **...and the other simply does not.**
 
 Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do HTML in HTML (templates) and JavaScript in JavaScript (ES6 modules).
 
