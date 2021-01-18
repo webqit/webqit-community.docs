@@ -1,0 +1,520 @@
+{
+    "meta": {
+        "bundle.html": {},
+        "readme": {
+            "outline": [
+                {
+                    "level": 1,
+                    "title": "OOHTML",
+                    "uri": "oohtml",
+                    "subtree": [
+                        {
+                            "level": 2,
+                            "title": "Low-Level Features",
+                            "uri": "low-level-features",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Higher-Level Features",
+                            "uri": "higher-level-features",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Getting Started",
+                            "uri": "getting-started",
+                            "subtree": [
+                                {
+                                    "level": 3,
+                                    "title": "Namespaced HTML",
+                                    "uri": "namespaced-html",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 3,
+                                    "title": "State and Observability",
+                                    "uri": "state-and-observability",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 3,
+                                    "title": "Scoped Scripts",
+                                    "uri": "scoped-scripts",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 3,
+                                    "title": "HTML Partials",
+                                    "uri": "html-partials",
+                                    "subtree": []
+                                }
+                            ]
+                        },
+                        {
+                            "level": 2,
+                            "title": "FAQs",
+                            "uri": "faqs",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Relationship With Other Technologies",
+                            "uri": "relationship-with-other-technologies",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Issues",
+                            "uri": "issues",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "License",
+                            "uri": "license",
+                            "subtree": []
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "subtree": {
+        "examples": {
+            "subtree": {
+                "jquery": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 2,
+                                    "title": "A Tooling Example",
+                                    "uri": "a-tooling-example",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    }
+                },
+                "spa": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 2,
+                                    "title": "A Single Page Application Example",
+                                    "uri": "a-single-page-application-example",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    }
+                },
+                "todo": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 2,
+                                    "title": "A TODO List Example",
+                                    "uri": "a-todo-list-example",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "Examples",
+                            "uri": "examples",
+                            "subtree": []
+                        }
+                    ]
+                }
+            }
+        },
+        "html-partials": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "HTML Partials",
+                            "uri": "html-partials",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Templates, Imports and Exports",
+                                    "uri": "templates-imports-and-exports",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Dynamicity",
+                                    "uri": "dynamicity",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Slot Inheritance",
+                                    "uri": "slot-inheritance",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Responsive Imports",
+                                    "uri": "responsive-imports",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Isomorphic Rendering",
+                                    "uri": "isomorphic-rendering",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Polyfill Support",
+                                    "uri": "polyfill-support",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "installation": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "Installation Guide",
+                            "uri": "installation-guide",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "On this Page",
+                                    "uri": "on-this-page",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Embed As Script",
+                                    "uri": "embed-as-script",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Install Via NPM",
+                                    "uri": "install-via-npm",
+                                    "subtree": [
+                                        {
+                                            "level": 3,
+                                            "title": "Server-Side Initialization",
+                                            "uri": "server-side-initialization",
+                                            "subtree": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Next Steps",
+                                    "uri": "next-steps",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "named-templates": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "Named Templates",
+                            "uri": "named-templates",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Convention",
+                                    "uri": "convention",
+                                    "subtree": [
+                                        {
+                                            "level": 3,
+                                            "title": "Imports and Exports",
+                                            "uri": "imports-and-exports",
+                                            "subtree": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Template Dependency Attribute",
+                                    "uri": "template-dependency-attribute",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Remote Content",
+                                    "uri": "remote-content",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "The Named Templates API",
+                                    "uri": "the-named-templates-api",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Template Tree Observability",
+                                    "uri": "template-tree-observability",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Polyfill Support",
+                                    "uri": "polyfill-support",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "namespaced-html": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "Namespaced HTML",
+                            "uri": "namespaced-html",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Convention",
+                                    "uri": "convention",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Namespaced Selectors",
+                                    "uri": "namespaced-selectors",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Namespace APIs",
+                                    "uri": "namespace-apis",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Namespace Observability",
+                                    "uri": "namespace-observability",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Polyfill Support",
+                                    "uri": "polyfill-support",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "related-technologies": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "OOHTML's Relationship With Other Technologies",
+                            "uri": "oohtmls-relationship-with-other-technologies",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "The Observer API",
+                                    "uri": "the-observer-apithe-observer-apireadmemd",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Namespaced HTML",
+                                    "uri": "namespaced-htmlnamespaced-htmlreadmemd",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Named Templates",
+                                    "uri": "named-templatesnamed-templatesreadmemd",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Scoped Scripts",
+                                    "uri": "scoped-scriptsscoped-scriptsreadmemd",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "The State API",
+                                    "uri": "the-state-apithe-state-apireadmemd",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "scoped-scripts": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "Scoped Scripts",
+                            "uri": "scoped-scripts",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Scoped Scripts",
+                                    "uri": "scoped-scripts-1",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Binding Scripts",
+                                    "uri": "binding-scripts",
+                                    "subtree": [
+                                        {
+                                            "level": 3,
+                                            "title": "The Asynchronous Runtime and Observability",
+                                            "uri": "the-asynchronous-runtime-and-observability",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 3,
+                                            "title": "Bindings",
+                                            "uri": "bindings",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 3,
+                                            "title": "The Binding Scripts API",
+                                            "uri": "the-binding-scripts-api",
+                                            "subtree": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Error Handling",
+                                    "uri": "error-handling",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Polyfill Support",
+                                    "uri": "polyfill-support",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "the-observer-api": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "The Observer API",
+                            "uri": "the-observer-api",
+                            "subtree": []
+                        }
+                    ]
+                }
+            }
+        },
+        "the-oohtml-meta-tag": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "The OOHTML Meta Tag",
+                            "uri": "the-oohtml-meta-tag",
+                            "subtree": []
+                        }
+                    ]
+                }
+            }
+        },
+        "the-state-api": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "The State API",
+                            "uri": "the-state-api",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Document-Level State",
+                                    "uri": "document-level-state",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Element-Level State",
+                                    "uri": "element-level-state",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "State Observability",
+                                    "uri": "state-observability",
+                                    "subtree": [
+                                        {
+                                            "level": 3,
+                                            "title": "A Custom Element Example",
+                                            "uri": "a-custom-element-example",
+                                            "subtree": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Polyfill Support",
+                                    "uri": "polyfill-support",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

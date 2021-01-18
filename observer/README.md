@@ -14,19 +14,22 @@
 ```js
 let obj = {};
 Observer.observe(obj, events => {
-    events.forEach(event => {
-        console.log(event.type, event.name, event.path, event.value, event.oldValue);
+    events.forEach(e => {
+        console.log(e.type, e.name, e.path, e.value, e.oldValue);
     });
 });
 
 Observer.set(obj, path, value);
 ```
 
-Follow the [installation guide](installation/README.md) to obtain the Observer API.
+Follow the [installation guide](installation) to add the Observer API to a page or project.
 
 ## Documentation
-+ [Examples](examples/README.md)
-+ [API](api/README.md)
++ [Examples](examples)
++ [API](api)
+
+## Design Goals
+See the [features explainer](explainer).
 
 ## Issues
 To report bugs or request features, please submit an [issue](https://github.com/webqit/observer/issues).

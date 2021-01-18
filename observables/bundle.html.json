@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "bundle.html": {},
+        "readme": {
+            "outline": [
+                {
+                    "level": 1,
+                    "title": "Observables",
+                    "uri": "observables",
+                    "subtree": [
+                        {
+                            "level": 2,
+                            "title": "Documentation",
+                            "uri": "documentation",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Issues",
+                            "uri": "issues",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "License",
+                            "uri": "license",
+                            "subtree": []
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

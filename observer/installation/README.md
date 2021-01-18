@@ -1,7 +1,7 @@
 # Installation
 Observer is usable in both browser and server environments.
 
-## Embed as script
+## Option 1: Embed as script
 
 ```html
 <script src="https://unpkg.com/@webqit/observer/dist/main.js"></script>
@@ -12,7 +12,7 @@ const Observer = WQ.Observer;
 </script>
 ```
 
-## Install via npm
+## Option 2: Install via npm
 
 ```text
 $ npm i -g npm
@@ -31,13 +31,13 @@ import Observer from './node_modules/@webqit/observer/src/index.js';
 
 ```js
 let obj = {};
-Observer.observe(obj, changes => {
-    console.log(changes.map(event => event.type + ': ' + event.name));
+Observer.observe(obj, events => {
+    console.log(events.map(e => e.type + ': ' + e.name));
 });
 
 Observer.set(obj, 'property', value);
 ```
 
 ## Documentation
-+ [Examples](../examples/README.md)
-+ [API Docs](../api/README.md)
++ [Examples](../examples)
++ [API Docs](../api)

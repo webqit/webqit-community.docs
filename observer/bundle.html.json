@@ -1,0 +1,822 @@
+{
+    "subtree": {
+        "api": {
+            "subtree": {
+                "closure": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.closure()",
+                                    "uri": "observerclosure",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "defineproperty": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.defineProperty()",
+                                    "uri": "observerdefineproperty",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Defining a Specific Property",
+                                                    "uri": "defining-a-specific-property",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Defining a List of Properties",
+                                                    "uri": "defining-a-list-of-properties",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Passing a Value to Observers",
+                                                    "uri": "passing-a-value-to-observers",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Returning Responses Back from Observers",
+                                                    "uri": "returning-responses-back-from-observers",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage as a Trap's defineProperty Handler",
+                                            "uri": "usage-as-a-traps-defineproperty-handler",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Intercepting Observer.defineProperty()",
+                                            "uri": "intercepting-observerdefineproperty",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "deleteproperty": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.deleteProperty()",
+                                    "uri": "observerdeleteproperty",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Deleting a Specific Property",
+                                                    "uri": "deleting-a-specific-property",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Deleting a List of Properties",
+                                                    "uri": "deleting-a-list-of-properties",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Passing a Value to Observers",
+                                                    "uri": "passing-a-value-to-observers",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Returning Responses Back from Observers",
+                                                    "uri": "returning-responses-back-from-observers",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage as a Trap's \"deleteProperty\" Handler",
+                                            "uri": "usage-as-a-traps-deleteproperty-handler",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Intercepting Observer.deleteProperty()",
+                                            "uri": "intercepting-observerdeleteproperty",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "get": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.get()",
+                                    "uri": "observerget",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Reading a Specific Property",
+                                                    "uri": "reading-a-specific-property",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Reading a List of Properties",
+                                                    "uri": "reading-a-list-of-properties",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage as a Trap's \"get\" Handler",
+                                            "uri": "usage-as-a-traps-get-handler",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage with Property Getters",
+                                            "uri": "usage-with-property-getters",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Intercepting Observer.get()",
+                                            "uri": "intercepting-observerget",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "has": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.has()",
+                                    "uri": "observerhas",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage as a Trap's \"has\" Handler",
+                                            "uri": "usage-as-a-traps-has-handler",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Intercepting Observer.has()",
+                                            "uri": "intercepting-observerhas",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "init": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.init()",
+                                    "uri": "observerinit",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "intercept": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.intercept()",
+                                    "uri": "observerintercept",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Tagging an Interceptor",
+                                            "uri": "tagging-an-interceptor",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Setting Multiple Interceptors",
+                                            "uri": "setting-multiple-interceptors",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "The Returned Interceptor Instance",
+                                            "uri": "the-returned-interceptor-instance",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "observe": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.observe()",
+                                    "uri": "observerobserve",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Observing All Properties",
+                                                    "uri": "observing-all-properties",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 4,
+                                                            "title": "Using the params.sutree Parameter",
+                                                            "uri": "using-the-paramssutree-parameter",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Observing a Path",
+                                                    "uri": "observing-a-path",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 4,
+                                                            "title": "Using Array Path Expressions",
+                                                            "uri": "using-array-path-expressions",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Observing a List of Paths",
+                                                    "uri": "observing-a-list-of-paths",
+                                                    "subtree": [
+                                                        {
+                                                            "level": 4,
+                                                            "title": "Using Wildcard Paths",
+                                                            "uri": "using-wildcard-paths",
+                                                            "subtree": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Specifying an Event Type",
+                                            "uri": "specifying-an-event-type",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Tagging an Observer",
+                                            "uri": "tagging-an-observer",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "The Returned Observer Instance",
+                                            "uri": "the-returned-observer-instance",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "ownkeys": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.ownKeys()",
+                                    "uri": "observerownkeys",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage as a Trap's \"ownKeys\" Handler",
+                                            "uri": "usage-as-a-traps-ownkeys-handler",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Intercepting Observer.ownKeys()",
+                                            "uri": "intercepting-observerownkeys",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "proxy": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.proxy()",
+                                    "uri": "observerproxy",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "set": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.set()",
+                                    "uri": "observerset",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": [
+                                                {
+                                                    "level": 3,
+                                                    "title": "Assigning On a Specific Property",
+                                                    "uri": "assigning-on-a-specific-property",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Assigning On a List of Propertieskeys",
+                                                    "uri": "assigning-on-a-list-of-propertieskeys",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Multiple Key/Value Assignment",
+                                                    "uri": "multiple-keyvalue-assignment",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Passing a Value to Observers",
+                                                    "uri": "passing-a-value-to-observers",
+                                                    "subtree": []
+                                                },
+                                                {
+                                                    "level": 3,
+                                                    "title": "Returning Responses Back from Observers",
+                                                    "uri": "returning-responses-back-from-observers",
+                                                    "subtree": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage as a Trap's \"set\" Handler",
+                                            "uri": "usage-as-a-traps-set-handler",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage with Property Setters",
+                                            "uri": "usage-with-property-setters",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Intercepting Observer.set()",
+                                            "uri": "intercepting-observerset",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "unintercept": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.unintercept()",
+                                    "uri": "observerunintercept",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "unobserve": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.unobserve()",
+                                    "uri": "observerunobserve",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "unproxy": {
+                    "meta": {
+                        "readme": {
+                            "outline": [
+                                {
+                                    "level": 1,
+                                    "title": "Observer.proxy()",
+                                    "uri": "observerproxy",
+                                    "subtree": [
+                                        {
+                                            "level": 2,
+                                            "title": "Syntax",
+                                            "uri": "syntax",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Usage",
+                                            "uri": "usage",
+                                            "subtree": []
+                                        },
+                                        {
+                                            "level": 2,
+                                            "title": "Related Methods",
+                                            "uri": "related-methods",
+                                            "subtree": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "API Documentation",
+                            "uri": "api-documentation",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Observer",
+                                    "uri": "observer",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Interception",
+                                    "uri": "interception",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Operators",
+                                    "uri": "operators",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Support Methods",
+                                    "uri": "support-methods",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "examples": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "Examples",
+                            "uri": "examples",
+                            "subtree": []
+                        }
+                    ]
+                }
+            }
+        },
+        "installation": {
+            "meta": {
+                "readme": {
+                    "outline": [
+                        {
+                            "level": 1,
+                            "title": "Installation",
+                            "uri": "installation",
+                            "subtree": [
+                                {
+                                    "level": 2,
+                                    "title": "Embed as script",
+                                    "uri": "embed-as-script",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Install via npm",
+                                    "uri": "install-via-npm",
+                                    "subtree": []
+                                },
+                                {
+                                    "level": 2,
+                                    "title": "Documentation",
+                                    "uri": "documentation",
+                                    "subtree": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "meta": {
+        "bundle.html": {},
+        "readme": {
+            "outline": [
+                {
+                    "level": 1,
+                    "title": "The Observer API",
+                    "uri": "the-observer-api",
+                    "subtree": [
+                        {
+                            "level": 2,
+                            "title": "Documentation",
+                            "uri": "documentation",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "Issues",
+                            "uri": "issues",
+                            "subtree": []
+                        },
+                        {
+                            "level": 2,
+                            "title": "License",
+                            "uri": "license",
+                            "subtree": []
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

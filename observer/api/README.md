@@ -2,29 +2,30 @@
 
 ## Observer
 
-+ [`Observer.observe()`](../api/observe.md)
-+ [`Observer.unobserve()`](../api/unobserve.md)
++ [`Observer.observe()`](observe)
++ [`Observer.unobserve()`](unobserve)
 
 ## Interception
 
-+ [`Observer.intercept()`](../api/intercept.md)
-+ [`Observer.unintercept()`](../api/unintercept.md)
++ [`Observer.intercept()`](intercept)
++ [`Observer.unintercept()`](unintercept)
 
 ## Operators
 
-+ [`Observer.set()`](../api/set.md)
-+ [`Observer.get()`](../api/get.md)
-+ [`Observer.has()`](../api/has.md)
-+ [`Observer.deleteProperty()`](../api/deleteproperty.md)
-+ [`Observer.del()`](../api/deleteproperty.md)
-+ [`Observer.defineProperty()`](../api/defineproperty.md)
-+ [`Observer.def()`](../api/defineproperty.md)
-+ [`Observer.keys()`](../api/keys.md)
-+ [`Observer.ownKeys()`](../api/ownkeys.md)
++ [`Observer.set()`](set)
++ [`Observer.get()`](get)
++ [`Observer.has()`](has)
++ [`Observer.deleteProperty()`](deleteproperty)
++ [`Observer.del()`](deleteproperty)
++ [`Observer.defineProperty()`](defineproperty)
++ [`Observer.def()`](defineproperty)
++ [`Observer.keys()`](keys)
++ [`Observer.ownKeys()`](ownkeys)
 
 ## Support Methods
 
-+ [`Observer.proxy()`](../api/proxy.md)
-+ [`Observer.unproxy()`](../api/unproxy.md)
-+ [`Observer.closure()`](../api/closure.md)
-+ [`Observer.init()`](../api/init.md)
++ [`Observer.getObservers()`](getobservers)
++ [`Observer.proxy()`](proxy)
++ [`Observer.unproxy()`](unproxy)
++ [`Observer.closure()`](closure)
++ [`Observer.init()`](init)

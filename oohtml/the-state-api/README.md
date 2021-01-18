@@ -3,12 +3,12 @@ For so many reasons, we often have to deal with application data at the document
 
 This specification defines proposed native primitives for implementing state and observability for modern "reactive" applications. These low-level APIs offer a baseline on which any design pattern, custom tooling or other high-level abstractions could be laid.
 
-> OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) but currently available through a polyfill. Be sure to check the [Polyfill Support](#polyfill-support) section below for the features on this page.
+> OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) while currently available through a polyfill. Be sure to check the [Polyfill Support](#polyfill-support) section below for the features on this page.
 
 ## Document-Level State
 Document-level state represents the global state of an application. This specification introduces a new `.state` property to the document object for managing document-wide state.
 
-+ **document.state: Object** - This *readonly* property is a property-transparent state object; its properties are written and read as-is, as with regular JavaScript objects.
++ **document.state: Object** - This *readonly* property is an object whose properties are written to and read as-is, as with regular JavaScript objects.
 
     ```js
     // Assign properties
@@ -64,9 +64,9 @@ Document-level state represents the global state of an application. This specifi
     ```
 
 ## Element-Level State
-Element-level state represents the local state of an element and its subtree. This specification introduces a new `.state` property to DOM elements for managing element-level state.
+Element-level state represents the local state of an element. This specification introduces a new `.state` property to DOM elements for managing element-level state.
 
-+ **Element.prototype.state: Object** - This *readonly* property is a property-transparent state object; its properties are written and read as-is, as with regular JavaScript objects.
++ **Element.prototype.state: Object** - This *readonly* property is an object whose properties are written to and read as-is, as with regular JavaScript objects.
 
     ```js
     // Assign properties
@@ -131,21 +131,22 @@ Element-level state represents the local state of an element and its subtree. Th
     ```
 
 ## State Observability
-The `document.state` property and the `Element.prototype.state` property are implemented as *live objects* that can be observed for property changes. Live objects are observed using the [Observer API](../the-observer-api/README.md).
+The `document.state` property and the `Element.prototype.state` property are implemented as *live objects* that can be observed for property changes. Live objects are observed using the [Observer API](../the-observer-api).
 
 ```js
 // Obtain the Observer API and use the Observer.observe() method
 Observer.observe(document.state, events => {
-    console.log(events.map(event => event.type + ': ' + event.name));
+    events.forEach(e => {
+        console.log(e.type, e.name, e.path, e.value);
+    });
 });
 ```
 
-We could as well specify just the name to observe on the function's second parameter.
+We could as well specify just the path to observe on the function's second parameter.
 
 ```js
-Observer.observe(document.state, 'pageTitle', event => {
-    // We're now also logging the event's value property
-    console.log(event.type, event.value);
+Observer.observe(document.state, 'pageTitle', e => {
+    console.log(e.type, e.name, e.path, e.value);
 });
 ```
 
@@ -165,17 +166,17 @@ To observe changes down the state tree, we would set the observer's `params.subt
 
 ```js
 Observer.observe(document.state, events => {
-    // We're now also logging the event's path property
-    console.log(events.map(event => event.type + ': ' + event.path));
+    events.forEach(e => {
+        console.log(e.type, e.name, e.path/*watch this*/, e.value);
+    });
 }, {subtree: true});
 ```
 
 We could as well specify just the path to observe.
 
 ```js
-Observer.observe(document.state, ['pageContent', 'aside'], event => {
-    // We're now also logging the event's path property
-    console.log(event.type, event.path);
+Observer.observe(document.state, ['pageContent', 'aside'], e => {
+    console.log(e.type, e.name, e.path, e.value);
 });
 ```
 
@@ -259,9 +260,9 @@ myCollapsible.state.collapsed = true;
 ```
 
 ## Polyfill Support
-The current [OOHTML polyfill implementation](../installation/README.md) has full support for The State API. The polyfill additionally makes it possible to customise much of its implementation of the syntax using the [OOHTML meta tag](../the-oohtml-meta-tag/README.md). The following are areas of customization:
+The current [OOHTML polyfill implementation](../polyfill) has full support for The State API. The polyfill additionally makes it possible to customise following areas of its implementation of the API using the [OOHTML META tag](../the-oohtml-meta-tag):
 
-+ **[api.state](#the-state-api)** - The property name for exposing the *state object* on DOM elements and the document object. The standard property name is `state`, but you may use a custom property name, where necessary.
++ **[api.state](#api)** - The property name for exposing the *state object* on DOM elements and the document object. The standard property name is `state`, but you may use a custom property name, where necessary.
         
     ```html
     <head>
@@ -273,7 +274,7 @@ The current [OOHTML polyfill implementation](../installation/README.md) has full
     myCollapsible.stateObject.collapsed = true;
     ```
 
-+ **[api.setState](#the-state-api)** - The *method name* for setting data on *state objects*. The standard *method name* is `setState`, but you may use a custom method name, where necessary.
++ **[api.setState](#api)** - The *method name* for setting data on *state objects*. The standard *method name* is `setState`, but you may use a custom method name, where necessary.
         
     ```html
     <head>
@@ -285,7 +286,7 @@ The current [OOHTML polyfill implementation](../installation/README.md) has full
     document.setStateObject(data);
     ```
 
-+ **[api.clearState](#the-state-api)** - The *method name* for clearing data from *state objects*. The standard *method name* is `clearState`, but you may use a custom method name, where necessary.
++ **[api.clearState](#api)** - The *method name* for clearing data from *state objects*. The standard *method name* is `clearState`, but you may use a custom method name, where necessary.
         
     ```html
     <head>
@@ -297,4 +298,4 @@ The current [OOHTML polyfill implementation](../installation/README.md) has full
     document.clearStateObject();
     ```
 
-Learn more about customization and the OOHTML meta tag [here](../the-oohtml-meta-tag/README.md).
+Learn more about customization and the OOHTML meta tag [here](../the-oohtml-meta-tag).

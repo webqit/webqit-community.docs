@@ -3,7 +3,7 @@ Namespacing is a DOM feature that let's an element establish its own naming cont
 
 Namespaced HTML is a document that is structured as a hierarchy of *scopes* and *subscopes*.
 
-> OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) but currently available through a polyfill. Be sure to check the [Polyfill Support](#polyfill-support) section below for the features on this page.
+> OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) while currently available through a polyfill. Be sure to check the [Polyfill Support](#polyfill-support) section below for the features on this page.
 
 ## Convention
 Namespaces are designated with the `namespace` *Boolean* attribute.
@@ -68,16 +68,18 @@ let aboutAsia = document.querySelector('#continents / #asia / #about');
 let divsAsia = document.querySelectorAll('#continents / #asia / div');
 ```
 
-## Namespace APIs
-*Namespaced HTML* offers a set of APIs for traversing namespaces as objects and properties.
+## API
+*Namespaced HTML* offers an API for traversing namespaces as objects and properties.
 
-+ **document.namespace: Object** - This *readonly* property is a reflection of the state of the document's namespaced IDs - IDs scoped to the document.
+> One advantage of Object-Orientend Development is that it minimizes selector-based queries.
+
++ **document.namespace: Object** - This *readonly* property gives the document's namespaced IDs - IDs scoped to the document - as an object.
 
     ```js
     let continents = document.namespace.continents; // Returns the "#continents" element in the markup above
     ```
 
-+ **Element.prototype.namespace: Object** - This *readonly* property is a reflection of the state of an element's namespaced IDs.
++ **Element.prototype.namespace: Object** - This *readonly* property gives an element's namespaced IDs - IDs scoped to the element - as an object.
 
     ```js
     // Get the "continents" article
@@ -91,24 +93,24 @@ let divsAsia = document.querySelectorAll('#continents / #asia / div');
     let aboutAsia = continents.namespace.asia.namespace.about;
     ```
 
-    > An object tree helps to facilitate Object-Orientend Development and minimize selector-based queries. It also turns out to offer better DOM performance than selector-based DOM traversal as we are practically not querying the DOM to reach elements.
-
 ## Namespace Observability
-With observability at OOHTML's core, the `document.namespace` property and the `Element.prototype.namespace` property are implemented as *live objects* that can be observed for realtime changes in the namespace tree. Live objects are observed using the [Observer API](../the-observer-api/README.md).
+With observability at OOHTML's core, the `document.namespace` property and the `Element.prototype.namespace` property are implemented as *live objects* that can be observed for realtime changes in the namespace tree. Live objects are observed using the [Observer API](../the-observer-api).
 
 ```js
 // Obtain the Observer API and use the Observer.observe() method
 Observer.observe(continents.namespace, events => {
-    console.log(events.map(event => event.type + ': ' + event.name));
+    events.forEach(e => {
+        console.log(e.type, e.name, e.path, e.value);
+    });
 });
 ```
 
-We could as well specify just the name to observe on the function's second parameter.
+We could as well specify just the path to observe on the function's second parameter.
 
 ```js
-Observer.observe(continents.namespace, 'africa', event => {
+Observer.observe(continents.namespace, 'africa', e => {
     // We're now also logging the event's value, that is, the element
-    console.log(event.type, event.value);
+    console.log(e.type, e.value);
 });
 ```
 
@@ -130,22 +132,24 @@ To observe changes down the namespace hierarchy, we would set the observer's `pa
 
 ```js
 Observer.observe(continents.namespace, events => {
-    // We're now also logging the event's path property
-    console.log(events.map(event => event.type + ': ' + event.path));
+    events.forEach(e => {
+        console.log(e.type, e.name, e.path/*watch this*/, e.value);
+    });
 }, {subtree: true});
 ```
 
 We could as well specify just the path to observe.
 
 ```js
-Observer.observe(continents.namespace, ['africa', 'namespace', 'countries'], event => {
-    // We're now also logging the event's value property
-    console.log(event.type, event.path, event.value));
+Observer.observe(continents.namespace, ['africa', 'namespace', 'countries'], e => {
+    console.log(e.type, e.path, e.value));
 });
 ```
 
+Other possibilities can be found in the Observer API documentation.
+
 ## Polyfill Support
-The current [OOHTML polyfill implementation](../installation/README.md) has good support for the Namespaced HTML Specification. With the exception of [Namespaced Selectors](#namespaced-selectors), all aspects of the specification are supported. The polyfill additionally makes it possible to customise much of its implementation of the syntax using the [OOHTML meta tag](../the-oohtml-meta-tag/README.md). The following are areas of customization:
+The current [OOHTML polyfill implementation](../polyfill) has good support for the Namespaced HTML Specification. With the exception of [Namespaced Selectors](#namespaced-selectors), all aspects of the specification are supported. The polyfill additionally makes it possible to customise the following areas of its implementation of the syntax using the [OOHTML META tag](../the-oohtml-meta-tag):
 
 + **[attr.namespace](#convention)** - The *namespace keyword* attribute. The standard *namespace keyword* attribute is `namespace`, but you may use a custom attribute name, where necessary.
         
@@ -171,7 +175,7 @@ The current [OOHTML polyfill implementation](../installation/README.md) has good
     </head>
     ```
 
-+ **[api.namespace](#namespace-apis)** - The *namespace* property exposed on the document object and on elements. The standard *namespace* property is `namespace`, but you may use a custom property name, where necessary.
++ **[api.namespace](#api)** - The *namespace* property exposed on the document object and on elements. The standard *namespace* property is `namespace`, but you may use a custom property name, where necessary.
         
     ```html
     <head>
@@ -184,4 +188,4 @@ The current [OOHTML polyfill implementation](../installation/README.md) has good
     let continents = document.ns.continents;
     ```
 
-Learn more about customization and the OOHTML meta tag [here](../the-oohtml-meta-tag/README.md).
+Learn more about customization and the OOHTML meta tag [here](../the-oohtml-meta-tag).
