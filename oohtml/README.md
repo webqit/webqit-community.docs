@@ -7,11 +7,12 @@
 
 <!-- /BADGES -->
 
-[Object-Oriented HTML (OOHTML)](https://webqit.io/tooling/oohtml) is a suite of new DOM features that particularly facilitates writing modular HTML, CSS, and JavaScript *natively* and *more conveniently*. It addresses a number of limitions inherent to existing conventions, and welcomes much of the paradigms associated with modern UI development.
+[Object-Oriented HTML (OOHTML)](https://github.com/webqit/oohtml) is a suite of new DOM features that particularly facilitates writing modular HTML, CSS, and JavaScript *natively* and *more conveniently*. It addresses a number of limitions inherent to existing conventions, and welcomes much of the paradigms associated with modern UI development.
 
 > OOHTML is being proposed as a [W3C standard at the Web Platform Incubator Community Group](https://discourse.wicg.io/t/proposal-chtml/4716) based on [this explainer](explainer). Consider bringing your ideas to the discussion.
 
-> [Visit this project on Github](https://github.com/webqit/oohtml).
+> [Visit project repo](https://github.com/webqit/oohtml).
+> [Visit project homepage](https://webqit.io/tooling/oohtml).
 
 ## Features
 OOHTML proposes five new features to native web languages to make common UI design terminologies possible natively. These features may be used individually or together to improve how we author UI code.
