@@ -30,7 +30,7 @@ Follow the [installation guide](installation) to add the Observer API to a page 
 + [API](api)
 
 ## Design Goals
-See the [features explainer](explainer).
+See the [API explainer](explainer).
 
 ## Issues
 To report bugs or request features, please submit an [issue](https://github.com/webqit/observer/issues).

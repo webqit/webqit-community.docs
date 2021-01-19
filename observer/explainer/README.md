@@ -1,4 +1,4 @@
-# The Observer API Explainer
+# API Explainer
 
 Here is how the approach we took with the Observer API compares, or contrasts, with those of some existing alternatives.
 
