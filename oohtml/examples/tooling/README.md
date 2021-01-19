@@ -1,6 +1,6 @@
 # Tooling In OOHTML
 
-This example shows how we could use a DOM abstraction library, like jQuery, from within Reflex scripts.
+This example shows how we could use a DOM abstraction library, like jQuery, from within Subscript code.
 
 Turns out that this is naturally possible!
 
@@ -19,7 +19,7 @@ Turns out that this is naturally possible!
 
         <div id="alert" namespace>
             <div id="message"></div>
-            <script type="reflex">
+            <script type="subscript">
                 $(this.namespace.message).html(this.state.message || 'Task pending...');
             </script>
         </div>
@@ -57,7 +57,7 @@ This technique is natively implemented by the [PlayUI](https://webqit.io/tooling
 
         <div id="alert" namespace>
             <div id="message"></div>
-            <script type="reflex">
+            <script type="subscript">
                 // The .html() method is asynchronous
                 $(this.namespace.message).html(this.state.message).then(() => {
                     // Do something sync

@@ -13,9 +13,9 @@ This is a collection of [Observer](https://webqit.io/tooling/observer)-based Jav
 
 ## Documentation
 Visit individual components for documentation:
-+ [Web Monetization](web-monetization/README.md)
-+ [Form](form/README.md)
-+ [Collection](collection/README.md)
++ [Web Monetization](web-monetization)
++ [Form](form)
++ [Collection](collection)
 
 ## Issues
 To report bugs or request features, please submit an [issue](https://github.com/webqit/observables/issues).

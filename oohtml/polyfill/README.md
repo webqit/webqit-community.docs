@@ -13,9 +13,9 @@ This library is a polyfill for OOHTML.
 
   + **[HTML Modules](../html-modules)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/html-modules.js"></script>`
   + **[HTML Imports](../html-imports)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/html-imports.js"></script>`
-  + **[The State API](../the-state-api)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/state-api.js"></script>`
-  + **[Reflex Scripts](../reflex-scripts)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/reflex-scripts.js"></script>`
   + **[Namespaced HTML](../namespaced-html)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/namespaced-html.js"></script>`
+  + **[The State API](../the-state-api)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/state-api.js"></script>`
+  + **[Subscript](../subscript)** - `<script src="https://unpkg.com/@webqit/oohtml/dist/subscript.js"></script>`
 
 ## Option 2: Install Via NPM
 

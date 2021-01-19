@@ -116,14 +116,14 @@ How do these compare?
 
 Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do HTML in HTML (templates) and JavaScript in JavaScript (ES6 modules).
 
-But then, loading **static, inert content**? What about cases where some reusable HTML has to go with some logic? [Reflex Scripts](../reflex-scripts) could be a good answer! We've had success with the following:
+But then, loading **static, inert content**? What about cases where some reusable HTML has to go with some logic? [Subscript](../subscript) could be a good answer! We've had success with the following:
 
 *File: /bundle.html*
 
 ```html
 <div exportgroup="blogPost">
     <p id="content">Content...</p>
-    <script type="reflex">
+    <script type="subscript">
         this.querySelector('#content').innerHTML = document.state.content;
     </script>
     <!-- previous syntax: <script type="scoped"></script> -->
@@ -154,6 +154,6 @@ Primitives for building *reactive* applications and keeping track of very dynami
 
     Compare the [Observer API](https://github.com/webqit/observer) which provides generic APIs for observing and intercepting JavaScript objects. See its *universal* role across the rest of OOHTML, and potentially other technologies.
 
-+ **Reactivity:** A Reactuve UI binding language? See [Reflex Scripts](../reflex-scripts). It comes bringing the full power of JavaScript for the job.
++ **Reactivity:** A Reactuve UI binding language? See [Subscript](../subscript). It comes bringing the full power of JavaScript for the job.
 
     Compare [this early idea for a template syntax by Jonathan Kingston](https://discourse.wicg.io/t/extension-of-template/447) from 2014, [this proposal](https://github.com/whatwg/html/issues/2254) from 2017, and [Apple's proposal](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md) from 2017.

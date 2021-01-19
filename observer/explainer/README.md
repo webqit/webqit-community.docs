@@ -198,7 +198,7 @@ The Observer API shares much in common with the once-exciting [`Object.observe()
     > Change detected on someProperty
     ```
 
-+ But with [`Observer.observe()`, operations on an object are announced in realtime. Notice the order in which the following reports are logged to the console.
++ But with `Observer.observe()`, operations on an object are announced in realtime. Notice the order in which the following reports are logged to the console.
 
     ```js
     let obj = {};
@@ -247,7 +247,7 @@ The Observer API shares much in common with the once-exciting [`Object.observe()
     > Number of changes made: 2
     ```
 
-+ But with [`Observer.observe()`, individual operations on an object are announced in realtime. Notice the difference in the console.
++ But with `Observer.observe()`, individual operations on an object are announced in realtime. Notice the difference in the console.
 
     ```js
     let obj = {};

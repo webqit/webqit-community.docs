@@ -38,7 +38,7 @@ Adding and removing items on the array happens *reactively*, and the correspondi
             <li namespace>
                 <span id="desc"></span>
                 <button id="remove">Remove</button>
-                <script type="reflex">
+                <script type="subscript">
                     this.namespace.desc.innerHTML = desc;
                 </script>
             </li>
@@ -62,7 +62,7 @@ Adding and removing items on the array happens *reactively*, and the correspondi
             Open your console and type: <code>document.state.todo.push({desc:"New Item"})</code>
             </div>
 
-            <script type="reflex">
+            <script type="subscript">
                 this.namespace.title.innerHTML = title;
                 this.namespace.adder.addEventListener('click', () => {
                     document.state.todo.push({desc: prompt('Task description'),});

@@ -21,10 +21,11 @@ var exprObj = Subscript.parse(expr);
 console.log(exprObj.eval());
 ```
 
-Follow the [installation guide](installation/README.md) to obtain this library.
+Follow the [installation guide](installation) to obtain this library.
 
 ## Documentation
-+ [The Language](language/README.md)
++ [The Language](language)
++ [API](api)
 
 ## Issues
 To report bugs or request features, please submit an [issue](https://github.com/webqit/subscript/issues).

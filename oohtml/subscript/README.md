@@ -1,15 +1,15 @@
-# Reflex
-Reflex is a new type of `<script>` elements that works as a *data binding* language for the UI. They are *scoped* to their immediate host elements instead of the global browser scope. These two important features make it all interesting to apply behaviour to modular markup, that is, give us the ability to have some little logic without involving an actual JavaScript file.
+# Subscript
+Subscript is a type of JavaScript runtime that lets us create scoped, *reactive* `<script>` elements across the UI. That gives us a UI binding language and the ability to have UI logic without involving an actual JavaScript file.
 
 > OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) while currently available through a polyfill. Be sure to check the [Polyfill Support](#polyfill-support) section below for the features on this page.
 
 ## Convention
-Reflex Scripts are defined with the `reflex` *MIME* type.
+Subscript elements are defined with the `subscript` *MIME* type. They are scoped to their immediate host element instead of the global browser scope.
 
 ```html
 <div id="alert">
 
-    <script type="reflex">
+    <script type="subscript">
         // ...
     </script>
 
@@ -21,7 +21,7 @@ They have their `this` variable implicitly bound to their host element.
 ```html
 <div id="alert">
 
-    <script type="reflex">
+    <script type="subscript">
         let id = this.id; // alert
     </script>
 
@@ -38,7 +38,7 @@ They have their other variables resolved from the global scope.
 
 <div id="alert">
 
-    <script type="reflex">
+    <script type="subscript">
         let message = alertMessage; // Task failed!
     </script>
 
@@ -52,7 +52,7 @@ They keep their variables from leaking out to the global scope.
         
     <div id="alert">
 
-        <script type="reflex">
+        <script type="subscript">
             let message = 'Task complete!';
         </script>
 
@@ -80,7 +80,7 @@ This lets us place behaviours of any form just where across the page we need the
 
     <div id="alert">
 
-        <script type="reflex">
+        <script type="subscript">
             let message = this.state.message || alertMessage;
             console.log(message);
         </script>
@@ -98,7 +98,7 @@ Now, that was a bare-bones `#alert` component above! We could make it quite inte
     <div class="message"></div>
     <div class="close" title="Close this message.">X</div>
 
-    <script type="reflex">
+    <script type="subscript">
         let message = this.state.message;
         this.querySelector('.message').innerHTML = message;
         this.querySelector('.close').addEventListener('click', () => {
@@ -109,21 +109,21 @@ Now, that was a bare-bones `#alert` component above! We could make it quite inte
 </div>
 ```
 
-## Reflex Actions
-Reflexive scripts are drastically different in behaviour from other JavaScript types (type="module", type="text/javascript", etc). The difference is that the script has the ability to observe the variables in its scoped and respond to those changes. Changes that fire up the script this way are called *Reflex Actionss*.
+## Runtime
+Subscript is drastically different in behaviour from other JavaScript types (type="module", type="text/javascript", etc). The difference is that the script has the ability to observe the variables in its scope and respond to those changes. Changes that fire up the script this way are called *events*, and a script's response to these events is called the *event-based runtime*.
 
-Reflex actions and a script's reponse to them can be understood from the code below. Take note of the first statement in the script which makes a reference to the `#alert` element's `.state.message` property.
+The event-based runtime can be understood from the code below. Take note of the first statement in the script which makes a reference to the `#alert` element's `.state.message` property.
 
 ```html
-<div id="alert">
+<div id="alert" namespace>
 
-    <div class="message"></div>
-    <div class="close" title="Close this message.">X</div>
+    <div id="message"></div>
+    <div id="close" title="Close this message.">X</div>
 
-    <script type="reflex">
+    <script type="subscript">
         let message = this.state.message;
-        this.querySelector('.message').innerHTML = message;
-        this.querySelector('.close').addEventListener('click', () => {
+        this.namespace.message.innerHTML = message;
+        this.namespace.close.addEventListener('click', () => {
             this.remove();
         });
     </script>
@@ -131,9 +131,9 @@ Reflex actions and a script's reponse to them can be understood from the code be
 </div>
 ```
 
-This script will, at first, run top-down as with standard JavaScript. Then, it will begin to observe changes to the `this.state.message` reference - being an observable property. And when a change is detected, that particular statement will be reevaluated, and the local `message` variable will take on the new value.
+This script will, at first, run top-down as with standard JavaScript. Then, it will begin to observe changes to the `this.state.message` reference - being an observable property. And when a change is detected, that particular statement will be reevaluated, and the new value is (re)assigned to the local `message` variable.
 
-The following update to the element's state property will trigger that *Reflex Action*.
+The following update to the element's state property will trigger that *event*.
 
 ```html
 <script>
@@ -141,21 +141,19 @@ The following update to the element's state property will trigger that *Reflex A
 </script>
 ```
 
-Now, the same *Reflex Actions* that changed the script's local `message` variable will go further to fire up subsequent statements that depend on it, in this case, leading to the new message being rendered. The third statement in this script is left untouched as it does not depend on the current Reflex Action.
+Now, the same event that changed the script's local `message` variable will go further to fire up subsequent statements that depend on it, in this case, leading to the new message being rendered. The third statement in this script is left untouched as it does not depend on the current change.
 
-Thus, when Reflex Actions happen, the dependency chain within script is followed even when broken down into local variables.
-
-This event-based runtime is called the *Reflex Runtime*.
+Thus, when events happen, the dependency chain within the script is followed even when broken down into local variables.
 
 ### Observability
-The Reflex Runtime uses the [Observer API](../the-observer-api) to observe objects in its scope whose properties can be observed. These are called *live objects*.
+The event-based runtime uses the [Observer API](../the-observer-api) to observe objects in its scope whose properties can be observed. These are called *live objects*.
 
-By default, the `this` object and the `document` object are observed. Thus, setting, updating or removing any of their properties using the Observer API will trigger the appropriate statement in a Reflex script.
+By default, the `this` object and the `document` object are observed. Thus, setting, updating or removing any of their properties using the Observer API will trigger the appropriate statement in a Subscript runtime.
 
 ```html
 <div>
 
-    <script type="reflex">
+    <script type="subscript">
         console.log('Global observableProperty:', document.observableProperty);
         console.log('Own observableProperty:', this.observableProperty);
     </script>
@@ -182,7 +180,7 @@ But, as seen in the `#alert` example above, we can more easily set or remove obs
 ```html
 <div>
 
-    <script type="reflex">
+    <script type="subscript">
         console.log('Global state.observableProperty:', document.state.observableProperty);
         console.log('Own state.observableProperty:', this.state.observableProperty);
     </script>
@@ -204,12 +202,12 @@ But, as seen in the `#alert` example above, we can more easily set or remove obs
 </script>
 ```
 
-In any of the cases above, we could get deep object mutations to be caught by a Reflex script using the Observer API.
+In any of the cases above, we could get deep object mutations to be caught by the Subscript runtime using the Observer API.
 
 ```html
 <div>
 
-    <script type="reflex">
+    <script type="subscript">
         console.log('Global clock.time:', document.clock.time);
         console.log('Own state.clock.time:', this.state.clock.time);
     </script>
@@ -232,12 +230,12 @@ In any of the cases above, we could get deep object mutations to be caught by a 
 ```
 
 ### Bindings
-While the `this` object and the `document` object are automatically observed from within an element's Reflex script, it is also possible to bind other objects to the script's scope. This is done using a `.bind()` method on the element - to bind locally, or on the `document` object - to bind globally for all scripts in the document.
+While the `this` object and the `document` object are automatically observed from within an element's Subscript runtime, it is also possible to bind other objects to the script's scope. This is done using a `.bind()` method on the element - to bind locally, or on the `document` object - to bind globally for all scripts in the document.
 
 ```html
 <div>
 
-    <script type="reflex">
+    <script type="subscript">
         console.log('Globally-bound clock time:', globallyBoundClock.time);
         console.log('Own-bound clock time:', locallyBoundClock.time);
     </script>
@@ -247,7 +245,7 @@ While the `this` object and the `document` object are automatically observed fro
 <script>
     // Create a collection of variables
     let globallyBoundClock = {time: '00:00:00',};
-    // Bind them to all Reflex scripts in the document
+    // Bind them to all Subscript scopes in the document
     document.bind({globallyBoundClock});
     setInterval(() => {
         // Update existing binding
@@ -270,14 +268,14 @@ While the `this` object and the `document` object are automatically observed fro
 ```
 
 #### API
-The following methods are used to dynamically bind observable variables to Reflex scripts.
+The following methods are used to dynamically bind observable variables to Subscript scopes.
 
-+ **document.bind(bindings[, params]): Void** - This method lets us bind objects at the document-level for all Reflex scripts across the document.
++ **document.bind(bindings[, params]): Void** - This method lets us bind objects at the document-level for all Subscript scopes across the document.
 
     **Parameters:**
-    + `bindings: Object` - The object to bind globally for all Reflex scripts in the document.
+    + `bindings: Object` - The object to bind globally for all Subscript scopes in the document.
     + `params: Object` - (Optional) Binding options:
-        + `update: Boolean` - Specifies whether to simply update existing variables in the global Reflex scope from properties of the given object or establish the given object as Reflex's new global scope. Default: `false` - establish as new global scope.
+        + `update: Boolean` - Specifies whether to simply update existing variables in Subscript's global scope from properties of the given object or establish the given object as Subscript new global scope. Default: `false` - establish as new global scope.
 
     ```js
     // Undo previous binding, if exists
@@ -303,7 +301,7 @@ The following methods are used to dynamically bind observable variables to Refle
 + **Element.prototype.bind(bindings[, params]): Void** - This method lets us bind objects at the element-level. Objects bound here are automatically-observed in the element's *binding* script.
 
     **Parameters:**
-    + `bindings: Object` - The object to bind to the element's Reflex script.
+    + `bindings: Object` - The object to bind to the element's Subscript scope.
     + `params: Object` - (Optional) Binding options:
         + `update: Boolean` - Specifies whether to simply update existing variables in the element's local scope from properties of the given object or establish the given object as the element's local scope. Default: `false` - establish as new scope.
 
@@ -329,7 +327,7 @@ The following methods are used to dynamically bind observable variables to Refle
     ```
 
 ## Error Handling
-Reflex features a way to handle errors that may occur within scripts. By default, script errors are logged to the console. But they can be silently ignored by setting a `script.errors` directive on the [OOHTML META tag](../the-oohtml-meta-tag).
+Subscript features a way to handle errors that may occur within scripts. By default, script errors are logged to the console. But they can be silently ignored by setting a `script.errors` directive on the [OOHTML META tag](../the-oohtml-meta-tag).
 
 ```html
 <html>
@@ -338,7 +336,7 @@ Reflex features a way to handle errors that may occur within scripts. By default
     </head>
     <body>
         <h1></h1>
-        <script type="reflex">
+        <script type="subscript">
             this.querySelectorSelectorSelector('h1').innerHTML = headline;
         </script>
     </body>
@@ -354,7 +352,7 @@ Individual script tags may also be given an `errors` directive, to override the 
     </head>
     <body>
         <h1></h1>
-        <script type="reflex" binding errors="1">
+        <script type="subscript" binding errors="1">
             this.querySelectorSelectorSelector('h1').innerHTML = headline;
         </script>
     </body>
@@ -362,9 +360,9 @@ Individual script tags may also be given an `errors` directive, to override the 
 ```
 
 ## Polyfill Support
-The current [OOHTML polyfill implementation](../polyfill) has good support for Reflex scripts. The polyfill additionally makes it possible to customise the follwoing areas of its implementation of the syntax using the [OOHTML META tag](../the-oohtml-meta-tag):
+The current [OOHTML polyfill implementation](../polyfill) has good support for Subscript. The polyfill additionally makes it possible to customise the follwoing areas of its implementation of the syntax using the [OOHTML META tag](../the-oohtml-meta-tag):
 
-+ **[selector.script](#convention)** - The CSS selector for matching the script element. The default selector is `script[type="reflex"]`. You may use a custom selector, like `script[is="my-script"][type="reflex"]`, where necessary.
++ **[selector.script](#convention)** - The CSS selector for matching the script element. The default selector is `script[type="subscript"]`. You may use a custom selector, like `script[is="my-script"][type="subscript"]`, where necessary.
         
     ```html
     <head>
@@ -373,8 +371,8 @@ The current [OOHTML polyfill implementation](../polyfill) has good support for R
     <body>
         <div>
 
-            <script is="my-script" type="reflex"></script>
-            <script is="my-script" type="reflex"></script>
+            <script is="my-script" type="subscript"></script>
+            <script is="my-script" type="subscript"></script>
 
         </div>
     </body>
