@@ -26,7 +26,7 @@ OOHTML proposes five new features to native web languages to make common UI desi
 > OOHTML is currently available through a [polyfill](polyfill). Be sure to check polyfill support in each feature.
 
 ### HTML Modules
-HTML Modules is a new DOM feature that lets us work with `<template>` elements and their contents using the *modules*, *imports* and *exports* paradigm. It introduces a clear naming convention for easy access to these elements and for organizing them *meaningfully* in a document.
+HTML Modules is a way to implement reusable HTML contents using the *modules*, *imports* and *exports* paradigm. It introduces a clear naming convention to `<template>` elements for finding and organizing them *meaningfully* in a document.
 
 Modules are designated using the `name` attribute, and their contents are regarded as *exports*.
 
