@@ -1,6 +1,6 @@
 ---
 icon: cone-striped
-desc: A pseudo implementation (parser + runtime) of the JavaScript language.
+desc: A server-side web browser for Nodejs.
 categories: Browser APIs, Backend
 ---
 # Pseudo Browser

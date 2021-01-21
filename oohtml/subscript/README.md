@@ -1,3 +1,6 @@
+---
+_after: the-state-api
+---
 # Subscript
 Subscript is a type of JavaScript runtime that lets us create scoped, *reactive* `<script>` elements across the UI. That gives us a UI binding language and the ability to have UI logic without involving an actual JavaScript file.
 

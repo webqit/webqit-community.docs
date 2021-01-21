@@ -1,3 +1,6 @@
+---
+_after: examples
+---
 # Installation Guide
 This library is a polyfill for OOHTML.
 

@@ -1,3 +1,6 @@
+---
+_after: html-modules
+---
 # HTML Imports
 HTML Imports are a declarative way to place reusable HTML snippets on any location in the DOM. This feature abstracts over the [HTML Modules API](../html-modules) to provide incredibly powerful composability in just a matter of tags and attributes.
 

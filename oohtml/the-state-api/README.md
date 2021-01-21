@@ -1,3 +1,6 @@
+---
+_after: namespaced-html
+---
 # The State API
 For so many reasons, we often have to deal with application data at the document and element levels. We either want to render data on an element or pass it down its subtree to be eventually rendered. The state of this data may be changing, and we may have to maintain some of it at each level. These are modern UI development paradigms that have not particularly been welcomed natively.
 

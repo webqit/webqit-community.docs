@@ -1,3 +1,6 @@
+---
+_after: html-imports
+---
 # Namespaced HTML
 Namespacing is a DOM feature that let's an element establish its own naming context for descendant elements. It makes it possible to keep IDs scoped to a context other than the document's global scope.
 
