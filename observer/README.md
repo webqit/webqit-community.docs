@@ -1,7 +1,7 @@
 ---
 icon: braces
 desc: Observability and Interceptability API for JavaScript Objects and Arrays.
-categories: featured, JavaScript APIs
+categories: Featured, JavaScript APIs
 tags: observer
 _after: oohtml
 ---
