@@ -1,3 +1,10 @@
+---
+icon: play
+desc: Modern UI suite and web component library.
+categories: Featured, UI, DOM APIs
+tags: Async-DOM, Animations, Events, Gestures, UI Geometry
+_after: observer
+---
 # Play UI
 
 <!-- BADGES/ -->

@@ -1,3 +1,10 @@
+---
+icon: terminal
+desc: OOHTML build tools.
+categories: Build Tools
+tags: OOHTML, CLI
+_after: oohtml
+---
 # OOHTML CLI
 
 <!-- BADGES/ -->
