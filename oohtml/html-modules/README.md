@@ -4,7 +4,7 @@ _before: html-imports
 # HTML Modules
 HTML's standard `<template>` elements are a special type of element that helps us hold independent, reusable HTML snippets. But a standard way to name and find these templates has been missing.
 
-HTML Modules is a new DOM feature that lets us work with `<template>` elements and their contents using the *modules*, *imports* and *exports* paradigm. It introduces a clear naming convention for easy access to these elements and for organizing them *meaningfully* in a document.
+HTML Modules are a new DOM feature that lets us work with `<template>` elements and their contents using the *module*, *import* and *export* paradigm. It introduces a clear naming convention for easy access to these elements and for organizing them *meaningfully* in a document.
 
 > OOHTML is [being proposed as a native browser technology](https://discourse.wicg.io/t/proposal-chtml/4716) while currently available through a polyfill. Be sure to check the [Polyfill Support](#polyfill-support) section below for the features on this page.
 
