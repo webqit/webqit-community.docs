@@ -1,3 +1,6 @@
+---
+_before: html-imports
+---
 # HTML Modules
 HTML's standard `<template>` elements are a special type of element that helps us hold independent, reusable HTML snippets. But a standard way to name and find these templates has been missing.
 
