@@ -16,7 +16,7 @@ _after: webflo
 
 [Object-Oriented HTML (OOHTML)](https://github.com/webqit/oohtml) is a suite of new DOM features that particularly facilitates writing modular HTML, CSS, and JavaScript *natively* and *more conveniently*. It addresses a number of limitions inherent to existing conventions, and welcomes much of the paradigms associated with modern UI development.
 
-> OOHTML is being proposed as a [W3C standard at the Web Platform Incubator Community Group](https://discourse.wicg.io/t/proposal-chtml/4716) based on [this explainer](explainer). Consider bringing your ideas to the discussion.
+> OOHTML is being proposed as a [W3C standard at the Web Platform Incubator Community Group](https://discourse.wicg.io/t/proposal-chtml/4716). Consider bringing your ideas to the discussion.
 
 > [Visit project repo](https://github.com/webqit/oohtml).
 > [Visit project homepage](https://webqit.io/tooling/oohtml).
@@ -33,9 +33,9 @@ OOHTML proposes five new features to native web languages to make common UI desi
 > OOHTML is currently available through a [polyfill](polyfill). Be sure to check polyfill support in each feature.
 
 ### HTML Modules
-HTML Modules is a way to implement reusable HTML contents using the *modules*, *imports* and *exports* paradigm. It introduces a clear naming convention to `<template>` elements for finding and organizing them *meaningfully* in a document.
+HTML Modules is a way to implement reusable HTML contents using the *module*, *import* and *export* paradigm. It introduces a clear naming convention to the `<template>` element and makes organizing and putting them to use more *meaningful*.
 
-Modules are designated using the `name` attribute, and their contents are regarded as *exports*.
+Every module has a `name` attribute - the module ID, and their contents are simply regarded as *exports*.
 
 ```html
 <head>
@@ -86,7 +86,7 @@ Or they may be individually *tagged* to an export identifier using the `exportgr
 </head>
 ```
 
-Either way, they will be accessed the same way using the *Modules API*.
+Either way, they are accessed the same way using the *Modules API*.
 
 ```js
 // Access module1 from document.templates
@@ -116,7 +116,7 @@ The contents of the remote file automatically becomes the template's content on 
 ### HTML Imports
 HTML Imports are a declarative way to place reusable snippets from HTML Modules just where they are needed across the DOM.
 
-Using the HTML Modules defined in the above section, an `<import>` element in the `<body>` area could simply point to a module and *place* its exports.
+An `<import>` element in the `<body>` area simply points to a module and *place* one of its exports.
 
 ```html
 <body>
