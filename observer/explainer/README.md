@@ -16,18 +16,18 @@ The Observer API shares much in API surface with JavaScript's built-in [*Object*
 
 What they don't share in common is Observer's *observability* and *interceptibility* of these operations. Where these features are needed, Observer's APIs will serve as a drop-in replacement.
 
-Learn more about what's possible with these methods:
+Learn more about what's possible with the following methods:
 
 + [`Observer.observe()`](../api/observe)
 + [`Observer.intercept()`](../api/intercept)
 
-## JavaScript's Property Setters + Getters, and Proxies
+## JavaScript's Property Accessors, and Proxies
 
-Both the Observer API and JavaScript's existing interceptibilty APIs - property [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) + [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get), and [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) will let you intercept operations on JavaScript objects. But, the Observer API is designed for a pattern that is almost not possible with these existing approaches.
+Both the Observer API and JavaScript's existing interceptibilty APIs - property [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) and [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get), and [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) will let you intercept operations on JavaScript objects. But, the Observer API is designed for a pattern that is almost not possible with these existing approaches.
 
 Problem is:
 
-+ With property *setters* and *getters*, there can be only one *intercepting code* over an object.
++ With property Accessors, there can be only one *intercepting code* over an object.
 
     ```js
     // The object
@@ -56,7 +56,7 @@ Problem is:
     obj.someProperty = 'some other new value'; // triggers the "set" interceptor above
     ```
 
-+ With proxies, there can be only one *intercepting code* over an instance. In addition, the object itself is wrapped by the proxy instance, and its identity is obscured, and the unsuspecting code somewhere gets to receive a proxy instance instead of the actual object. Conversely, operations made on the object itself, instead of the proxy instance, are not intercepted.
++ With proxies, there can be only one *intercepting code* over an instance. In addition, the final object every other part of the code sees is a proxy, and not the object itself. And if they're not prepared for a proxy, the magic, or even the code, fails. **Obscuring object identity** thus becomes a big challenge.
 
     ```js
     // The object
@@ -129,7 +129,7 @@ But, with the Observer API:
     Observer.set(obj, 'someProperty', 'some other new value'); // triggers both the interceptors and observers above
     ```
 
-+ And interestingly, property setters and getters, and proxies, are still implementable with the Observer API, and this time, without being tied to a single *intercepting code*.
++ And interestingly, property setters and getters, and proxies, are still implementable with the Observer API, and this time, without their inherent limitations.
 
     ```js
     let someValue = obj.someProperty; // "some other new value"; // doesn't fire interceptors; so, obtained traditionally
@@ -160,7 +160,7 @@ But, with the Observer API:
     let obj = Observer.unproxy(wrapper2);
     ```
 
-Learn more about what's possible with these methods:
+Learn more about what's possible with the following methods:
 
 + [`Observer.observe()`](../api/observe)
 + [`Observer.intercept()`](../api/intercept)
@@ -294,7 +294,7 @@ The Observer API shares much in common with the once-exciting [`Object.observe()
     > After "set" operations
     ```
 
-Learn more about what's possible with these methods:
+Learn more about what's possible with the following methods:
 
 + [`Observer.set()`](../api/set)
 + [`Observer.deleteProperty()`](../api/deleteproperty)
