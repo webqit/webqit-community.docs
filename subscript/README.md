@@ -1,7 +1,7 @@
 ---
 icon: terminal
 desc: A pseudo JavaScript engine.
-categories: JavaScript APIs
+categories: Web-Native
 ---
 # Subscript
 
