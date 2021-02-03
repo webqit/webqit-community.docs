@@ -2,7 +2,7 @@
 icon: braces
 title: Observer
 desc: Observability and Interceptability API for JavaScript Objects and Arrays.
-categories: Featured, Web-Native
+categories: Web-Native
 tags: observer
 _after: oohtml
 ---
