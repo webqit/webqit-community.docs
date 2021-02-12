@@ -347,7 +347,7 @@ And we can render values from the global scope or from properties of the element
 <body>
 ```
 
-Then reactivity! Subscript code is reactive in behaviour and runs in sync with any changes observed in objects that may be referenced in the script's statements. In other words, statements are re-executed whenever the observable properties they depend on change. Thus, in the code above, any changes made to the observable property `.state.message` will trigger that particular statement to run again.
+Then reactivity! Subscript code is reactive in behaviour and runs in sync with any changes observed in objects that may be referenced in the script's statements. In other words, statements are re-executed whenever the observable references they depend on change. Thus, in the code above, any changes made to the observable reference`.state.message` will trigger that particular statement to run again.
 
 ```js
 let alertElement = document.querySelector('#alert');
