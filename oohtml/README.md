@@ -167,7 +167,7 @@ Now, one or more `<import>` elements could use a *module ID* defined at a higher
 document.querySelector('div[template="module1"]').setAttribute('template', 'module2');
 ```
 
-This opens up new simple ways to create very dynamic applications. [Think a Single Page Application](examples/spa) (SPA).
+This opens up new simple ways to create very dynamic applications.
 
 *Details are in the [HTML Imports](html-imports) documentation. Learn more about the convention, dynamicity, Slot Inheritance, isomorphic rendering, and the polyfill support.*
 
@@ -386,12 +386,9 @@ The `<my-collapsible>` component we created in the *State API* section above cou
 *Details are in the [Subscript](subscript) documentation. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.*
 
 ## Next Steps
-This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a page, pasting the code examples and running them right on your browser.
+This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a page, pasting the code examples and running them right on your browser. ([Here are some more examples to try](examples))
 
 Your personal experience may have something to give back in some way to OOHTML's development. If you'd like us to feature your usecase with OOHTML, do reach us via any of the means mentioned below.
-
-## Design Goals
-See the [features explainer](explainer).
 
 ## Supporting OOHTML
 *Platform feature* proposals aren't the easiest thing in the world!
@@ -404,6 +401,9 @@ See the [features explainer](explainer).
 + They have to go through a million iterations! And much in dollars go into that!
 
     If you could help in some way, we'd be more than glad! If you'd like to find out what your $1 could do for us and what's in for you, do indeed reach out at oxharris.dev@gmail.com.
+
+## Design Goals
+See the [features explainer](explainer).
 
 ## Issues
 To report bugs or request features, please submit an [issue](https://github.com/webqit/oohtml/issues).
