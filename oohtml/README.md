@@ -22,7 +22,7 @@ _after: webflo
 > [Visit project homepage](https://webqit.io/tooling/oohtml).
 
 ## Features
-OOHTML proposes five new features to native web languages to make common UI design terminologies possible natively. These features may be used individually or together to improve how we author UI code.
+OOHTML proposes five new features for native implementation to make common UI design terminologies possible without external tooling. These features may be used individually or together to improve how we author the UI. Here is an overview:
 
 + [HTML Modules](#html-modules)
 + [HTML Imports](#html-imports)
@@ -33,7 +33,7 @@ OOHTML proposes five new features to native web languages to make common UI desi
 > OOHTML is currently available through a [polyfill](polyfill). Be sure to check polyfill support in each feature.
 
 ### HTML Modules
-HTML Modules is a way to implement reusable HTML contents using the *module*, *import* and *export* paradigm. It introduces a clear naming convention to the `<template>` element and makes organizing and putting them to use more *meaningful*.
+HTML Modules is a way to implement reusable HTML markup using the *module*, *import* and *export* paradigm. It establishes the standard `<template>` element as the module entity for HTML and introduces new attributes, properties and events that make work.
 
 Every module has a `name` attribute - the module ID, and their contents are simply regarded as *exports*.
 
