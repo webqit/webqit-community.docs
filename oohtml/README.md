@@ -386,7 +386,7 @@ The `<my-collapsible>` component we created in the *State API* section above cou
 *Details are in the [Subscript](subscript) documentation. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.*
 
 ## Next Steps
-This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a page and pasting the code examples right on your browser.
+This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a page, pasting the code examples and running them right on your browser.
 
 Your personal experience may have something to give back in some way to OOHTML's development.
 
