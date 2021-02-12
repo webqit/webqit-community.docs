@@ -14,7 +14,7 @@ _after: webflo
 
 <!-- /BADGES -->
 
-[Object-Oriented HTML (OOHTML)](https://github.com/webqit/oohtml) is a suite of new DOM features that particularly facilitates writing *modular*, *reusable*, and *reactive* HTML and JavaScript *natively* and *more conveniently*. It addresses a number of limitions inherent to existing conventions and welcomes much of the paradigms associated with modern UI development.
+[Object-Oriented HTML (OOHTML)](https://github.com/webqit/oohtml) is a suite of new DOM features that particularly facilitates writing *modular*, *reusable*, and *reactive* HTML and JavaScript *natively* and *more conveniently*. It addresses a number of limitions inherent with existing conventions and welcomes much of the paradigms associated with modern UI development.
 
 > OOHTML is being proposed as a [W3C standard at the Web Platform Incubator Community Group](https://discourse.wicg.io/t/proposal-chtml/4716). Consider bringing your ideas to the discussion.
 
