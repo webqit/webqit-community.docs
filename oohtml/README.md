@@ -397,7 +397,7 @@ Your personal experience may have something to give back in some way to OOHTML's
 
     If you indeed have a usecase for all, or aspects, of OOHTML, or have some opinions, you should please join the discussion at the [WICG](https://discourse.wicg.io/t/proposal-chtml/4716).
     
-    If you are building something early with it (just as we are building [webqit.io](//webqit.io) with it), we'd like to hear from you via any means - [WICG](https://discourse.wicg.io/t/proposal-chtml/4716), [email - oxharris.dev@gmail.com], [Discussions](https://github.com/webqit/oohtml/discussions). And Pull Requests are very welcomed!
+    If you are building something early with it (just as we are building [webqit.io](//webqit.io) with it), we'd like to hear from you via any means - [WICG](https://discourse.wicg.io/t/proposal-chtml/4716), [email - oxharris.dev@gmail.com], [Github Discussions](https://github.com/webqit/oohtml/discussions).
 + They have to go through a million iterations! And much in dollars go into that!
 
     If you could help in some way, we'd be more than glad! If you'd like to find out what your $1 could do for us and what's in for you, do indeed reach out at oxharris.dev@gmail.com.
