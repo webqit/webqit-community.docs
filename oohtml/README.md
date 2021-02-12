@@ -115,9 +115,9 @@ The contents of the remote file automatically becomes the template's content on 
 *Details are in the [HTML Modules](html-modules) documentation. Learn more about the convention, API, events, and the polyfill support.*
 
 ### HTML Imports
-HTML Imports are a declarative way to place reusable snippets from HTML Modules just where they are needed across the DOM.
+HTML Imports are a declarative way to *import* reusable snippets from HTML Modules into places across the DOM.
 
-An `<import>` element in the `<body>` area simply points to a module and *place* one of its exports.
+An `<import>` element in the `<body>` area simply points to a module to *place* one of its exports.
 
 ```html
 <body>
@@ -140,7 +140,7 @@ Resolution takes place and the `<import>` element is replaced by all of the impo
 </body>
 ```
 
-One or more `<import>` elements could use a *module ID* defined at a higher scope in the tree.
+Now, one or more `<import>` elements could use a *module ID* defined at a higher scope in the tree.
 
 ```html
 <body>
@@ -172,7 +172,7 @@ This opens up new simple ways to create very dynamic applications. [Think a Sing
 *Details are in the [HTML Imports](html-imports) documentation. Learn more about the convention, dynamicity, Slot Inheritance, isomorphic rendering, and the polyfill support.*
 
 ### Namespaced HTML
-Namespacing is a DOM feature that let's an element establish its own naming context for descendant elements. It makes it possible to keep IDs scoped to a context other than the document's global scope.
+Namespacing is a DOM feature that let's an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope.
 
 The following modular markup implements its IDs in namespaces:
 
@@ -217,7 +217,7 @@ let aboutAsia = continents.namespace.asia.namespace.about;
 
 We get a document structure that's easier to reason about and to work with.
 
-One advantage of the Namespace API is that it minimizes selector-based queries. Much of our code in the examples below will now use the `.namespace` property instead of calling the `.querySelector()` function.
+> We find that the Namespace API helps us minimize selector-based DOM traversal. Much of our code in the examples below will now use the `.namespace` property instead of calling the `.querySelector()` function.
 
 *Details are in the [Namespaced HTML](namespaced-html) documentation. Learn more about the convention, Namespaced Selectors, API, observability, and the polyfill support.*
 
@@ -282,7 +282,7 @@ customElements.define('my-collapsible', class extends HTMLElement {
 });
 ```
 
-And other parts of the application can be in sync with this state.
+Now, other parts of the application can be in sync with the state of this element.
 
 ```js
 let collapsible = document.querySelector('my-collapsible');
@@ -347,7 +347,7 @@ And we can render values from the global scope or from properties of the element
 <body>
 ```
 
-Next is reactivity! Subscript code is reactive in behaviour and runs in sync with any changes observed in object properties that may be referenced in the script's statements. In other words, statements are re-executed whenever the observable properties they depend on change. Thus, in the code above, any changes made to the observable property `.state.message` will trigger that particular statement to run again.
+Then reactivity! Subscript code is reactive in behaviour and runs in sync with any changes observed in object properties that may be referenced in the script's statements. In other words, statements are re-executed whenever the observable properties they depend on change. Thus, in the code above, any changes made to the observable property `.state.message` will trigger that particular statement to run again.
 
 ```js
 let alertElement = document.querySelector('#alert');
