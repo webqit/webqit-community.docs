@@ -161,7 +161,7 @@ One or more `<import>` elements could use a *module ID* defined at a higher scop
 </body>
 ```
 
-*Imports* are resolved again when the module ID is dynamically pointed at another `<template>`.
+*Imports* are resolved again when the module ID is dynamically pointed at another module element.
 
 ```js
 document.querySelector('div[template="module1"]').setAttribute('template', 'module2');
@@ -217,41 +217,7 @@ let aboutAsia = continents.namespace.asia.namespace.about;
 
 We get a document structure that's easier to reason about and to work with.
 
-One advantage of the Namespace API is that it minimizes selector-based queries. Much of our code in the examples above could go without the `.querySelector()` function. For example, below is a *namespaced* version of the *my-collapsible* element we created in the section for *The State API* [above](#the-state-api).
-
-```html
-<my-collapsible namespace>
-    <div id="control">Toggle Me</div>
-    <div id="content" style="height: 0px">
-        Some content
-    </div>
-</my-collapsible>
-```
-
-```js
-customElements.define('my-collapsible', class extends HTMLElement {
-
-    /**
-     * Creates the Shadow DOM
-     */
-    constructor() {
-        super();
-        // Observe state and get the UI synced
-        let contentElement = this.namespace.content;
-        Observer.observe(this.state, 'collapsed', e => {
-            contentElement.style.height = e.value ? '0px' : 'auto';
-            this.setAttribute('data-collapsed', e.value ? 'true' : 'false');
-        });
-
-        // Implement the logic for toggling collapsion
-        let controlElement = this.namespace.control;
-        controlElement.addEventListener('click', function() {
-            this.state.collapsed = !this.state.collapsed;
-        });
-    }
-
-});
-```
+One advantage of the Namespace API is that it minimizes selector-based queries. Much of our code in the examples below will now use the `.namespace` property instead of calling the `.querySelector()` function.
 
 *Details are in the [Namespaced HTML](namespaced-html) documentation. Learn more about the convention, Namespaced Selectors, API, observability, and the polyfill support.*
 
@@ -316,7 +282,7 @@ customElements.define('my-collapsible', class extends HTMLElement {
 });
 ```
 
-And other parts of the application can be in sync with its state.
+And other parts of the application can be in sync with this state.
 
 ```js
 let collapsible = document.querySelector('my-collapsible');
@@ -335,11 +301,12 @@ The following `<script>` element is scoped to the `#alert` element - its host el
 ```html
 <div id="alert">
     <script type="subscript">
+        console.log(this.id); // alert
     </script>
 </div>
 ```
 
-The `this` variable is a reference to the script's host element; variables declared within the script are available only within the script, and global variables are always available.
+As seen, the `this` variable is a reference to the script's host element. In addition, variables declared within the script are available only within the script, and global variables are always available within Subscript.
 
 ```html
 <div id="alert" namespace>
@@ -356,7 +323,7 @@ The `this` variable is a reference to the script's host element; variables decla
 </div>
 ```
 
-And we can render values from the global scope or from the element itself.
+And we can render values from the global scope or from properties of the element itself.
 
 ```html
 <body>
@@ -380,7 +347,7 @@ And we can render values from the global scope or from the element itself.
 <body>
 ```
 
-Then reactivity! Subscript code is reactive in behaviour and runs in sync with any observable properties that may be referenced in their statements. Statements are re-executed whenever the observable properties they depend on change. Thus, in the code above, changes to the observable property `.state.message` will trigger that specific statement to run again.
+Next is reactivity! Subscript code is reactive in behaviour and runs in sync with any changes observed in object properties that may be referenced in the script's statements. In other words, statements are re-executed whenever the observable properties they depend on change. Thus, in the code above, any changes made to the observable property `.state.message` will trigger that particular statement to run again.
 
 ```js
 let alertElement = document.querySelector('#alert');
@@ -390,7 +357,7 @@ setTimeout(() => {
 }, 1000);
 ```
 
-The `<my-collapsible>` component we created in the section above could as well be implemented with Subscript this way.
+The `<my-collapsible>` component we created in the *State API* section above could as well be implemented with Subscript alone this way.
 
 ```html
 <div id="collapsible" namespace>
@@ -414,9 +381,14 @@ The `<my-collapsible>` component we created in the section above could as well b
 </div>
 ```
 
-> Sometimes, we do not even need as much as a custom element to bring life to some spot in the UI.
+> As seen, with Subscript, we sometimes won't need as much as a custom element to bring life to some spot in the UI.
 
 *Details are in the [Subscript](subscript) documentation. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.*
+
+## Next Steps
+This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a page and pasting the code examples right on your browser.
+
+Your personal experience may have something to give back in some way to OOHTML's development.
 
 ## Design Goals
 See the [features explainer](explainer).
@@ -431,7 +403,7 @@ See the [features explainer](explainer).
     If you are building something early with it (just as we are building [webqit.io](//webqit.io) with it), we'd like to hear from you via any means - [WICG](https://discourse.wicg.io/t/proposal-chtml/4716), [email - oxharris.dev@gmail.com], [issue](https://github.com/webqit/oohtml/issues). And Pull Requests are very welcomed!
 + They have to go through a million iterations! And much in dollars go into that!
 
-    If you could help in some way, we'd be more than glad! If you'd like to find out how to, or whether as much as $1 counts, or if there are perks for supporting, you should indeed reach out - oxharris.dev@gmail.com.
+    If you could help in some way, we'd be more than glad! If you'd like to find out what your $1 could do for us and what's in for you, do indeed reach out at oxharris.dev@gmail.com.
 
 ## FAQs
 We are working on publishing some questions we've been asked, but you can always file an [issue](https://github.com/webqit/oohtml/issues) to ask a new question or raise a suggestion.
