@@ -19,6 +19,7 @@ _after: webflo
 > OOHTML is being proposed as a [W3C standard at the Web Platform Incubator Community Group](https://discourse.wicg.io/t/proposal-chtml/4716). Consider bringing your ideas to the discussion.
 
 > [Visit project repo](https://github.com/webqit/oohtml).
+
 > [Visit project homepage](https://webqit.io/tooling/oohtml).
 
 ## Features
