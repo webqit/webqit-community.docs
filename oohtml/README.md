@@ -294,7 +294,7 @@ Observer.observe(collapsible.state, 'collapsed', e => {
 *Details are in the [State API](the-state-api) documentation. Learn more about the API, deep observability, and the polyfill support.*
 
 ### Subscript
-Subscript is a type of JavaScript runtime that lets us create scoped, *reactive* `<script>` elements across the UI. That gives us a UI binding language and the ability to have UI logic without involving an actual JavaScript file.
+Subscript is a type of JavaScript runtime that lets us create scoped, *reactive* `<script>` elements across the UI. That gives us a UI binding language and the ability to have UI logic without involving actual JavaScript classes or files.
 
 The following `<script>` element is scoped to the `#alert` element - its host element - instead of the global browser scope:
 
@@ -381,7 +381,7 @@ The `<my-collapsible>` component we created in the *State API* section above cou
 </div>
 ```
 
-> As seen, with Subscript, we sometimes won't need as much as a custom element to bring life to some spot in the UI.
+> We find that with Subscript, we sometimes don't need as much as a custom element to bring life to some areas in the UI.
 
 *Details are in the [Subscript](subscript) documentation. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.*
 
