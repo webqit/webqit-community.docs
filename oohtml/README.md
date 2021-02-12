@@ -161,7 +161,7 @@ Now, one or more `<import>` elements could use a *module ID* defined at a higher
 </body>
 ```
 
-*Imports* are resolved again when the module ID is dynamically pointed at another module element.
+*Imports* maintain a *live* relationship with the modules they are associated with. For example, they are resolved again when the module ID is dynamically pointed at another module element.
 
 ```js
 document.querySelector('div[template="module1"]').setAttribute('template', 'module2');
