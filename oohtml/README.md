@@ -388,7 +388,7 @@ The `<my-collapsible>` component we created in the *State API* section above cou
 ## Next Steps
 This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a page, pasting the code examples and running them right on your browser.
 
-Your personal experience may have something to give back in some way to OOHTML's development.
+Your personal experience may have something to give back in some way to OOHTML's development. If you'd like us to feature your usecase with OOHTML, do reach us via any of the means mentioned below.
 
 ## Design Goals
 See the [features explainer](explainer).
@@ -400,16 +400,17 @@ See the [features explainer](explainer).
 
     If you indeed have a usecase for all, or aspects, of OOHTML, or have some opinions, you should please join the discussion at the [WICG](https://discourse.wicg.io/t/proposal-chtml/4716).
     
-    If you are building something early with it (just as we are building [webqit.io](//webqit.io) with it), we'd like to hear from you via any means - [WICG](https://discourse.wicg.io/t/proposal-chtml/4716), [email - oxharris.dev@gmail.com], [issue](https://github.com/webqit/oohtml/issues). And Pull Requests are very welcomed!
+    If you are building something early with it (just as we are building [webqit.io](//webqit.io) with it), we'd like to hear from you via any means - [WICG](https://discourse.wicg.io/t/proposal-chtml/4716), [email - oxharris.dev@gmail.com], [Discussions](https://github.com/webqit/oohtml/discussions). And Pull Requests are very welcomed!
 + They have to go through a million iterations! And much in dollars go into that!
 
     If you could help in some way, we'd be more than glad! If you'd like to find out what your $1 could do for us and what's in for you, do indeed reach out at oxharris.dev@gmail.com.
 
-## FAQs
-We are working on publishing some questions we've been asked, but you can always file an [issue](https://github.com/webqit/oohtml/issues) to ask a new question or raise a suggestion.
-
 ## Issues
 To report bugs or request features, please submit an [issue](https://github.com/webqit/oohtml/issues).
+
+## Discusions (new)
+We now have a dedicated [Github Discussions](https://github.com/webqit/oohtml/discussions) for OOHTML. General feedback may be taken here instead of filing an issue.
+
 
 ## License
 MIT.
