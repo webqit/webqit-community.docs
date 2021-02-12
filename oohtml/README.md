@@ -110,7 +110,7 @@ Taking things further, template elements may reference remote content using the 
 </head>
 ```
 
-The contents of the remote file automatically becomes the template's content on load.
+The contents of the remote file automatically become the template's content on load.
 
 *Details are in the [HTML Modules](html-modules) documentation. Learn more about the convention, API, events, and the polyfill support.*
 
