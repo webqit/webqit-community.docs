@@ -115,7 +115,7 @@ The contents of the remote file automatically become the template's content on l
 *Details are in the [HTML Modules](html-modules) documentation. Learn more about the convention, API, events, and the polyfill support.*
 
 ### HTML Imports
-HTML Imports are a declarative way to *import* reusable snippets from HTML Modules into places across the DOM.
+HTML Imports are a declarative way to *import* reusable snippets from HTML Modules into slots in the main document.
 
 An `<import>` element in the `<body>` area simply points to a module to *place* one of its exports.
 
