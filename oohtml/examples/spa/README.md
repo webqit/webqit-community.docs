@@ -18,20 +18,20 @@ Below, we're using the two `<template>` elements to each represent a route - a p
 
             <!-- "home" page module -->
             <template name="home">
-                <h1 import="headline">
+                <h1 exportgroup="headline">
                     Welcome Home!
                 </h1>
-                <p import="content">
+                <p exportgroup="content">
                     <a href="#/about">About Me</a>
                 </p>
             </template>
 
             <!-- "about" page module -->
             <template name="about">
-                <h1 import="headline">
+                <h1 exportgroup="headline">
                     About Me!
                 </h1>
-                <p import="content">
+                <p exportgroup="content">
                     <a href="#/home">Back to Home</a>
                 </p>
             </template>
