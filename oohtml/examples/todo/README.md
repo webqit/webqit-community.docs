@@ -39,7 +39,7 @@ Adding and removing items on the array happens *reactively*, and the correspondi
                 <span id="desc"></span>
                 <button id="remove">Remove</button>
                 <script type="subscript">
-                    this.namespace.desc.innerHTML = desc;
+                    this.namespace.desc.innerHTML = this.state.desc;
                 </script>
             </li>
 
