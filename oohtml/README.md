@@ -282,7 +282,7 @@ customElements.define('my-collapsible', class extends HTMLElement {
 });
 ```
 
-Now, other parts of the application can be in sync with the state of this element.
+Now, other parts of the application is able to work in sync with the state of this element.
 
 ```js
 let collapsible = document.querySelector('my-collapsible');
@@ -306,7 +306,7 @@ The following `<script>` element is scoped to the `#alert` element - its host el
 </div>
 ```
 
-As seen, the `this` variable is a reference to the script's host element. In addition, variables declared within the script are available only within the script, and global variables are always available within Subscript.
+As seen, the `this` variable is a reference to the script's host element. In addition, variables declared within the script are available only within the script, while global variables are always available across all scripts.
 
 ```html
 <div id="alert" namespace>
