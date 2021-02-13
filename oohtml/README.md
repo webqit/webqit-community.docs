@@ -34,7 +34,7 @@ OOHTML proposes five new features for native implementation to make common UI de
 > OOHTML is currently available through a [polyfill](polyfill). Be sure to check polyfill support in each feature.
 
 ### HTML Modules
-HTML Modules is a way to implement reusable HTML markup using the *module*, *import* and *export* paradigm. It establishes the standard `<template>` element as the module infrastructure for HTML and introduces new attributes, properties and events that make work.
+HTML Modules are a way to implement reusable HTML markup using the *module*, *import* and *export* paradigm. It establishes the standard `<template>` element as the module infrastructure for HTML and introduces new attributes, properties and events that make work.
 
 Every module has a `name` attribute - the module ID, and their contents are simply regarded as *exports*.
 
