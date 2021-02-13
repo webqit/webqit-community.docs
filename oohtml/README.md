@@ -323,7 +323,7 @@ As seen, the `this` variable is a reference to the script's host element. In add
 </div>
 ```
 
-And we can render values from the global scope or from properties of the element itself.
+Below is how we could render something from a property of the element's state object - `.state.message`.
 
 ```html
 <body>
@@ -347,7 +347,7 @@ And we can render values from the global scope or from properties of the element
 <body>
 ```
 
-Then reactivity! Subscript code is reactive in behaviour and runs in sync with any changes observed in objects that may be referenced in the script's statements. In other words, statements are re-executed whenever the observable references they depend on change. Thus, in the code above, any changes made to the observable reference`.state.message` will trigger that particular statement to run again.
+And here is one of the most important features of Subscript: reactivity! While Subscript works like regular JavaScript, it is also able to observe changes in its scope and respond to them. And it does this at the statement level such that statements are re-executed whenever the observable references they depend on change. Thus, in the code above, any changes made to the observable reference`.state.message` will trigger that particular statement to run again.
 
 ```js
 let alertElement = document.querySelector('#alert');
@@ -372,7 +372,7 @@ The `<my-collapsible>` component we created in the *State API* section above cou
 
         this.setAttribute('data-collapsed', this.state.collapsed ? 'true' : 'false');
         this.namespace.content.style.height = this.state.collapsed ? '0px' : 'auto';
-        this.namespace.control.addEventListener('click', function() {
+        this.namespace.control.addEventListener('click', () => {
             // Toggle collapsion state
             this.state.collapsed = !this.state.collapsed;
         });
