@@ -357,7 +357,7 @@ setTimeout(() => {
 }, 1000);
 ```
 
-The `<my-collapsible>` component we created in the *State API* section above could as well be implemented with Subscript alone this way.
+Leveraging this reactivity, here's how we could implement the `<my-collapsible>` component we created in the *State API* section above - this time, without a JavaScript class.
 
 ```html
 <div id="collapsible" namespace>
@@ -381,7 +381,7 @@ The `<my-collapsible>` component we created in the *State API* section above cou
 </div>
 ```
 
-> We find that with Subscript, we sometimes don't need as much as a custom element to bring life to some areas in the UI.
+> We can see that with Subscript, we sometimes don't need as much as a custom element to bring life to some areas in the UI.
 
 *Details are in the [Subscript](subscript) documentation. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.*
 
