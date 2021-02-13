@@ -409,7 +409,7 @@ See the [features explainer](explainer).
 To report bugs or request features, please submit an [issue](https://github.com/webqit/oohtml/issues).
 
 ## Discusions (new)
-We now have a dedicated [Github Discussions](https://github.com/webqit/oohtml/discussions) for OOHTML. General feedback may be taken here instead of filing an issue.
+We now have [Github Discussions](https://github.com/webqit/oohtml/discussions) for OOHTML. General feedback may be taken here instead of filing an issue.
 
 
 ## License
