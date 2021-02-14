@@ -393,7 +393,7 @@ Also, if you'd like us to feature your usecase with OOHTML, do reach out via any
 ## Supporting OOHTML
 *Platform feature* proposals aren't the easiest thing in the world!
 
-+ They have to be something everyone can agree on!
++ They have to be something everyone can agree on! This makes us want to hear from you.
 
     If you indeed have a usecase for all, or aspects, of OOHTML, or have some opinions, you should please join the discussion at the [WICG](https://discourse.wicg.io/t/proposal-chtml/4716).
     
