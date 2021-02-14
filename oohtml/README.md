@@ -386,9 +386,9 @@ Leveraging this reactivity, here's how we could implement the `<my-collapsible>`
 *Details are in the [Subscript](subscript) documentation. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.*
 
 ## Next Steps
-This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a page, pasting the code examples and running them right on your browser. ([Here are some more examples to try](examples))
+This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a blank page, pasting the code examples and running them right on your browser. ([Here are some more examples to try](examples).) Your personal experience may have something to give back in some way to OOHTML's development.
 
-Your personal experience may have something to give back in some way to OOHTML's development. If you'd like us to feature your usecase with OOHTML, do reach out via any of the means mentioned below.
+Also, if you'd like us to feature your usecase with OOHTML, do reach out via any of the means mentioned below.
 
 ## Supporting OOHTML
 *Platform feature* proposals aren't the easiest thing in the world!
