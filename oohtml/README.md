@@ -282,7 +282,7 @@ customElements.define('my-collapsible', class extends HTMLElement {
 });
 ```
 
-Now, other parts of the application is able to work in sync with the state of this element.
+Now, other parts of the application are able to work in sync with the state of this element.
 
 ```js
 let collapsible = document.querySelector('my-collapsible');
