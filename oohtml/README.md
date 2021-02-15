@@ -172,7 +172,7 @@ This opens up new simple ways to create very dynamic applications.
 *Details are in the [HTML Imports](html-imports) documentation. Learn more about the convention, dynamicity, Slot Inheritance, isomorphic rendering, and the polyfill support.*
 
 ### Namespaced HTML
-Namespacing is a DOM feature that let's an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope.
+Namespacing is a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope.
 
 The following modular markup implements its IDs in namespaces:
 
