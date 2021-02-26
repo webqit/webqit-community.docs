@@ -117,6 +117,8 @@ The contents of the remote file automatically become the template's content on l
 ### HTML Imports
 HTML Imports are a declarative way to *import* reusable snippets from HTML Modules into slots in the main document.
 
+> It is important to note that this is not the depreciated HTML Imports that shipped with Web Components.
+
 An `<import>` element in the `<body>` area simply points to a module to *place* one of its exports.
 
 ```html
