@@ -22,7 +22,7 @@ _before: webflo
 
 > [Visit project homepage](https://webqit.io/tooling/oohtml).
 
-> This documentation is entirely being improved on.
+> This entire documentation is currently being improved on.
 
 ## Features
 OOHTML proposes five new features for native implementation to make common UI design terminologies possible without external tooling. These features may be used individually or together to improve how we author the UI. Here is an overview:
