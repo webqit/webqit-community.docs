@@ -89,9 +89,7 @@ How do these compare?
     <body>
         <import name="blogPost" template="bundle"></import>
     </body>
-    ```   
-
-    *See also: [[HTML Modules - direction]](https://github.com/WICG/webcomponents/issues/863)*
+    ```
 
     **But, the other approach remains based _only in JavaScript_**
 
@@ -104,9 +102,9 @@ How do these compare?
     </body>
     ```
 
-+ **OOHTML's approach makes for _lazy-loading plus load events_, as with elements like `<img>`...**
+    *But [the new direction](https://github.com/WICG/webcomponents/issues/863) of this approach is having an afterthought toward a declarative way to place imported content in markup.*
 
-    *In JavaScript - see [Module events](../html-modules#module-events)*
++ **OOHTML's approach follows _lazy-loading of remote modules and lazy rendering of `<import>` elements, as driven by module events_.** This makes `<import>` elements work just like elements like `<img>`: 'display whenever you can load', as seen below:
     
     *In HTML - as detailed in [OOHTML Imports](../html-imports)*
 
@@ -121,7 +119,7 @@ How do these compare?
 
 Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do all HTML concerns in HTML (templates) and all JavaScript concerns in JavaScript (ES6 modules).
 
-But then, it is a common pattern today for some reusable HTML has to go with some logic. And it is interesting how the another of OOHTML's feature - [Subscript](../subscript) - lets us add non-global JavaScript to HTML markup, with everything working happily:
+But then, it is a common pattern today for some reusable HTML has to go with some logic. And it is interesting how another of OOHTML's feature - [Subscript](../subscript) - lets us add such non-global JavaScript to HTML markup, with everything working happily:
 
 *Remote File: /bundle.html*
 
