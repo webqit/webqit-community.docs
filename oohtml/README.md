@@ -144,7 +144,7 @@ Resolution takes place and the `<import>` element is replaced by all of the impo
 </body>
 ```
 
-Now, one or more `<import>` elements could use a *module ID* defined at a higher scope in the tree.
+One or more `<import>` elements could share a *module ID* defined at a higher scope in the tree.
 
 ```html
 <body>
@@ -165,9 +165,10 @@ Now, one or more `<import>` elements could use a *module ID* defined at a higher
 </body>
 ```
 
-*Imports* maintain a *live* relationship with the modules they are associated with. For example, they are resolved again when the module ID is dynamically pointed at another module element.
+*Imports* maintain a *live* relationship with the modules that are associated with them. For example, they are resolved again when the module ID is dynamically pointed at another module element.
 
 ```js
+// Changing the module ID on the DIV container above will see all associated imports resolved again
 document.querySelector('div[template="module1"]').setAttribute('template', 'module2');
 ```
 
@@ -176,7 +177,7 @@ This opens up new simple ways to create very dynamic applications.
 *Details are in the [HTML Imports](html-imports) documentation. Learn more about the convention, dynamicity, Slot Inheritance, isomorphic rendering, and the polyfill support.*
 
 ### Namespaced HTML
-Namespacing is a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope.
+Namespacing is a way to let an element establish its own naming context for descendant elements. This makes it possible to keep IDs scoped to a context other than the document's global scope; thus the ability to write collision-free IDs across a page.
 
 The following modular markup implements its IDs in namespaces:
 
@@ -221,7 +222,7 @@ let aboutAsia = continents.namespace.asia.namespace.about;
 
 We get a document structure that's easier to reason about and to work with.
 
-> We find that the Namespace API helps us minimize selector-based DOM traversal. Much of our code in the examples below will now use the `.namespace` property instead of calling the `.querySelector()` function.
+> We find that the Namespacing helps us to (1) write collision-free IDs and selectors, and (2) minimize selector-based DOM traversal with the Namespace API. Much of our code in the examples below will now use the `namespace` attribute in markup and the `.namespace` property in JS instead of calling the `.querySelector()` function.
 
 *Details are in the [Namespaced HTML](namespaced-html) documentation. Learn more about the convention, Namespaced Selectors, API, observability, and the polyfill support.*
 
@@ -327,7 +328,7 @@ As seen, the `this` variable is a reference to the script's host element. In add
 </div>
 ```
 
-Below is how we could render something from a property of the element's state object - `.state.message`.
+Below is how we could render something - a message - from the element's state object - `.state.message`.
 
 ```html
 <body>
@@ -389,8 +390,11 @@ Leveraging this reactivity, here's how we could implement the `<my-collapsible>`
 
 *Details are in the [Subscript](subscript) documentation. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.*
 
+## Examples
+We're putting together a collection of examples in the [examples](examples) section.
+
 ## Next Steps
-This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a blank page, pasting the code examples and running them right on your browser. ([Here are some more examples to try](examples).) Your personal experience may have something to give back in some way to OOHTML's development.
+This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a blank page, pasting the code examples and running them right on your browser. Your personal experience may have something to give back in some way to OOHTML's development.
 
 Also, if you'd like us to feature your usecase with OOHTML, do reach out via any of the means mentioned below.
 
