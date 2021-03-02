@@ -53,7 +53,7 @@ Adding and removing items on the array happens *reactively*, and the correspondi
 
             <h2 id="title"></h2>
             <ol id="items" template="items"></ol>
-            <button id="adder">Add</button>
+            <button id="add">Add</button>
             
             <br /><br />
 
@@ -63,8 +63,8 @@ Adding and removing items on the array happens *reactively*, and the correspondi
             </div>
 
             <script type="subscript">
-                this.namespace.title.innerHTML = title;
-                this.namespace.adder.addEventListener('click', () => {
+                this.namespace.title.innerHTML = document.state.title;
+                this.namespace.add.addEventListener('click', () => {
                     document.state.todo.push({desc: prompt('Task description'),});
                 });
                 $(this.namespace.items).itemize(document.state.todo, (callbackType, el, data, index, isUpdate) => {
