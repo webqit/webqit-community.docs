@@ -15,7 +15,7 @@ This information is being gathered to present OOHTML's design and architectural 
     *BEM also doesn't really go beyond usage in CSS. Namespaced HTML, on the other hand, is able to translate Namespaces in markup into namespace objects in JavaScript by means of the Namespace API.*
 
 + **[Stuart P.'s Parts and Walls](https://github.com/stuartpb/pwalls-spec)** proposal from 2015 also points to the same need for a modular naming that's accessible in JavaScript.
-    + But while the above is base on frequent DOM traversal, Namespaced HTML let's you access the same elements as live DOM properties. In other words, instead of having to query the DOM each time to access named elements, the DOM exposes them as properties and let's us receive updates when any of the properties change. *See details in the [Namespace API](../namespaced-html#api) of [Namespaced HTML](../namespaced-html).*
+    + But while the above is based on programmatic DOM traversal, Namespaced HTML let's us access the same elements declaratively as live DOM properties. In other words, instead of having to query the DOM each time to access named elements, the DOM exposes them as properties and let's us receive updates when any of the properties change. *See details in the [Namespace API](../namespaced-html#api) of [Namespaced HTML](../namespaced-html).*
 
     *And just for fun, it also looks like the DOM itself likes the idea of exposing strategic UI objects in JavaScript as DOM properties. See [`document.head`](https://developer.mozilla.org/en-US/docs/Web/API/Document/head) and [`document.body`](https://developer.mozilla.org/en-US/docs/Web/API/Document/body). These are indeed more concise than `document.querySelector('head')` and `document.querySelector('body')`.*
 
