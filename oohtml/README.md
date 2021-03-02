@@ -222,7 +222,7 @@ let aboutAsia = continents.namespace.asia.namespace.about;
 
 We get a document structure that's easier to reason about and to work with.
 
-> We find that the Namespacing helps us to (1) write collision-free IDs and selectors, and (2) minimize selector-based DOM traversal with the Namespace API. Much of our code in the examples below will now use the `namespace` attribute in markup and the `.namespace` property in JS instead of calling the `.querySelector()` function.
+> We find that Namespacing helps us to (1) write collision-free IDs and selectors, and (2) by means of the Namespace API, minimize selector-based DOM traversal (e.g `el.namespace.some_id` vs `el.querySelector('#some_id')`). Much of our code in the examples below will now use the `namespace` attribute in markup and the `.namespace` property in JS.
 
 *Details are in the [Namespaced HTML](namespaced-html) documentation. Learn more about the convention, Namespaced Selectors, API, observability, and the polyfill support.*
 
@@ -352,7 +352,7 @@ Below is how we could render something - a message - from the element's state ob
 <body>
 ```
 
-And here is one of the most important features of Subscript: reactivity! While Subscript works like regular JavaScript, it is also able to observe changes in its scope and respond to them. And it does this at the statement level such that statements are re-executed whenever the observable references they depend on change. Thus, in the code above, any changes made to the observable reference`.state.message` will trigger that particular statement to run again.
+And here is one of the most important features of Subscript: reactivity! While Subscript works like regular JavaScript, it is also able to observe changes in its scope and respond to them. And it does this at the statement level such that a given statement is evaluated again and independent of other statements whenever the observable references on the statement change. Thus, in the code above, any changes made to the observable reference`.state.message` will trigger that particular statement to run again.
 
 ```js
 let alertElement = document.querySelector('#alert');
