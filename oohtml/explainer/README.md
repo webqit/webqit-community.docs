@@ -7,17 +7,19 @@ This information is being gathered to present OOHTML's design and architectural 
 
 ## Object-Oriented Markup
 
-*Naming and finding things* is hard; modular design makes it easier! This isn't necessarily some modern wisdom, we just haven't addressed HTML's old idea of one global scope for IDs and CSS selectors.
+*Naming and finding things* is hard; modular design makes it easier! This isn't necessarily some modern wisdom, we just couldn't before now address HTML's old idea of one global scope for IDs and CSS selectors. Here's how we currently struggle with modular markup and how OOHTML makes it a lot easier.
 
-+ **[BEM](https://getbem.com)** has been an agreeable workaround for many people. It's, however, clunky. *Compare the [Namespaced Selectors](../namespaced-html#namespaced-selectors) in [Namespaced HTML](../namespaced-html).*
++ **[BEM](https://getbem.com)** has been an agreeable workaround for many people. It's, however, clunky.
++ Compare that with the more succinct **[Namespaced Selectors](../namespaced-html#namespaced-selectors)** in [Namespaced HTML](../namespaced-html).
 
-    BEM also doesn't really go beyond usage in CSS.
+    *BEM also doesn't really go beyond usage in CSS. Namespaced HTML, on the other hand, is able to translate Namespaces in markup into namespace objects in JavaScript by means of the Namespace API.*
 
-+ **[Stuart P.'s Parts and Walls](https://github.com/stuartpb/pwalls-spec)** proposal from 2015 is descriptive of the same need - for a modular naming convention; this time, with a JavaScript API in view. *Compare the *property-based* [Namespace API](../namespaced-html#api) in [Namespaced HTML](../namespaced-html).*
++ **[Stuart P.'s Parts and Walls](https://github.com/stuartpb/pwalls-spec)** proposal from 2015 also points to the same need for a modular naming that's accessible in JavaScript.
++ But while the above is base on frequent DOM traversal, Namespaces HTML let's you access the same elements as properties of a live object. In other words, instead of having to query the DOM each time to access named elements, the DOM exposes them as properties and let's us receive updates when any of the properties change. See details in the [Namespace API](../namespaced-html#api) of [Namespaced HTML](../namespaced-html).*
 
-    It also looks like the DOM itself likes the idea of accessing strategic UI objects in JavaScript using a simple `object.property` convention. See [`document.head`](https://developer.mozilla.org/en-US/docs/Web/API/Document/head) and [`document.body`](https://developer.mozilla.org/en-US/docs/Web/API/Document/body). These are indeed more concise than `document.querySelector('head')` and `document.querySelector('body')`.
+    *And just for fun, it also looks like the DOM itself likes the idea of accessing strategic UI objects in JavaScript using a simple `object.property` convention. See [`document.head`](https://developer.mozilla.org/en-US/docs/Web/API/Document/head) and [`document.body`](https://developer.mozilla.org/en-US/docs/Web/API/Document/body). These are indeed more concise than `document.querySelector('head')` and `document.querySelector('body')`.*
 
-Overall, [Namespaced HTML](../namespaced-html) captures the gap between *how we endeavor to author HTML* and *what the current conventions allow*, and provides the ideal naming system that allows for keeping things to small-sized scopes.
+Overall, [Namespaced HTML](../namespaced-html) is the far-reaching solution to authoring modular HTML and CSS.
 
 ## HTML Modules and Imports
 
