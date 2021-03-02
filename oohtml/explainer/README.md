@@ -30,7 +30,7 @@ On the expansive subject of [*HTML Modules*](https://github.com/WICG/webcomponen
 
 How do these compare?
 
-+ **OOHTML's approach let's you _author and deliver HTML in HTML_.** And it's as declarative as this:
++ **OOHTML's approach let's us _author and deliver HTML in HTML_.** And it's as declarative as this:
     
     *Remote File: /bundle.html*
 
@@ -48,7 +48,7 @@ How do these compare?
 
     *See also: [[proposal - **src** attribute]](https://discourse.wicg.io/t/add-src-attribute-to-template/2721), [[proposal - **src** attribute]](https://github.com/whatwg/html/issues/2791)*
 
-    **But, the other approach gets you to deal with JavaScript code to import remote HTML**
+    **But, the other approach gets us to deal with JavaScript code to import remote HTML**
 
     *Remote File: /import.html*
 
