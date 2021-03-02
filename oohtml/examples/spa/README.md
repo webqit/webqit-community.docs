@@ -1,6 +1,6 @@
 # An SPA In OOHTML
 
-This example makes an SPA of [*HTML Imports*](../html-imports).
+This example makes a Single Page Application (SPA) of [*HTML Imports*](../html-imports).
 
 Below, we're using the two `<template>` elements to each represent a route - a page. Then we point the `<body>`'s template attribute to either of the `<template>`s, depending on the current URL.
 
