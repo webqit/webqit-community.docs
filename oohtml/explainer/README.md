@@ -7,15 +7,15 @@ This information is being gathered to present OOHTML's design and architectural 
 
 ## Object-Oriented Markup
 
-*Naming and finding things* is hard; modular design makes it easier! This isn't necessarily some modern wisdom, we just couldn't before now address HTML's old idea of one global scope for IDs and CSS selectors. Here's how we currently struggle with modular markup and how OOHTML makes it a lot easier.
+*Naming and finding things* is hard; modular design makes it easier! This isn't necessarily some modern wisdom, we just couldn't before now address HTML's old idea of one global scope for IDs and CSS selectors. Here's how we currently struggle with creating modular markup and how OOHTML makes it a lot easier.
 
 + **[BEM](https://getbem.com)** has been an agreeable workaround for many people. It's, however, clunky.
-+ Compare that with the more succinct **[Namespaced Selectors](../namespaced-html#namespaced-selectors)** in [Namespaced HTML](../namespaced-html).
+    + Compare that with the more succinct **[Namespaced Selectors](../namespaced-html#namespaced-selectors)** in [Namespaced HTML](../namespaced-html).
 
     *BEM also doesn't really go beyond usage in CSS. Namespaced HTML, on the other hand, is able to translate Namespaces in markup into namespace objects in JavaScript by means of the Namespace API.*
 
 + **[Stuart P.'s Parts and Walls](https://github.com/stuartpb/pwalls-spec)** proposal from 2015 also points to the same need for a modular naming that's accessible in JavaScript.
-+ But while the above is base on frequent DOM traversal, Namespaces HTML let's you access the same elements as properties of a live object. In other words, instead of having to query the DOM each time to access named elements, the DOM exposes them as properties and let's us receive updates when any of the properties change. See details in the [Namespace API](../namespaced-html#api) of [Namespaced HTML](../namespaced-html).*
+    + But while the above is base on frequent DOM traversal, Namespaces HTML let's you access the same elements as properties of a live object. In other words, instead of having to query the DOM each time to access named elements, the DOM exposes them as properties and let's us receive updates when any of the properties change. See details in the [Namespace API](../namespaced-html#api) of [Namespaced HTML](../namespaced-html).*
 
     *And just for fun, it also looks like the DOM itself likes the idea of accessing strategic UI objects in JavaScript using a simple `object.property` convention. See [`document.head`](https://developer.mozilla.org/en-US/docs/Web/API/Document/head) and [`document.body`](https://developer.mozilla.org/en-US/docs/Web/API/Document/body). These are indeed more concise than `document.querySelector('head')` and `document.querySelector('body')`.*
 
@@ -26,13 +26,13 @@ Overall, [Namespaced HTML](../namespaced-html) is the far-reaching solution to a
 On the expansive subject of [*HTML Modules*](https://github.com/WICG/webcomponents/issues/645), OOHTML takes a very, very different approach from the many existing opinions to how reusable markup should be delivered and consumed in the browser - *[OOHTML's HTML Modules](../html-modules)*. What is the most important difference?
 
 + OOHTML sees HTML Modules as simply a way to ship and consume **static, inert content**, and is thus more oriented towards HTML's standard primitive for *static, inert content* - the `<template>` element. OOHTML simply introduces [the **src** attribute](../html-modules#remote-content) as a way to *load a template's content from a remote HTML file*.
-+ [This explainer](https://github.com/WICG/webcomponents/blob/gh-pages/proposals/html-modules-explainer.md), among others, however, follows the JavaScript route - loading **both static content and active script elements** using ES6 module infrastructure.
++ [This explainer](https://github.com/WICG/webcomponents/blob/gh-pages/proposals/html-modules-explainer.md), among others, however, follows the JavaScript route of using ES6 module infrastructure to load **both static content and active script elements**.
 
 How do these compare?
 
-+ **One is *authoring and delivering HTML in HTML*...**
++ **OOHTML's approach let's you _author and deliver HTML in HTML_.** And it's as declarative as this:
     
-    *File: /bundle.html*
+    *Remote File: /bundle.html*
 
     ```html
     <div exportgroup="blogPost">
@@ -40,7 +40,7 @@ How do these compare?
     </div>
     ```
 
-    *Document*
+    *Main Document:*
 
     ```html
     <template name="bundle" src="/bundle.html"></template>
@@ -48,9 +48,9 @@ How do these compare?
 
     *See also: [[proposal - **src** attribute]](https://discourse.wicg.io/t/add-src-attribute-to-template/2721), [[proposal - **src** attribute]](https://github.com/whatwg/html/issues/2791)*
 
-    **...and the other is *authoring and delivering HTML with JavaScript***
+    **But, the other approach gets you to deal with JavaScript code to import remote HTML**
 
-    *File: /import.html*
+    *Remote File: /import.html*
 
     ```html
     <div id="blogPost">
@@ -62,7 +62,7 @@ How do these compare?
     </script>
     ```
     
-    *Document*`
+    *Main Document:*`
 
     ```js
     <script type="module">
@@ -70,9 +70,9 @@ How do these compare?
     </script>
     ```
 
-+ **One provides for consuming the imported HTML *both in JavaScript and in HTML*...**
++ **OOHTML's approach provides for consuming the imported HTML _both in JavaScript and in HTML_.** And it's as declarative as the following two cases:
     
-    *In JavaScript - See [API](../html-modules#api)*
+    *In JavaScript - as detailed in [HTML Modules API](../html-modules#api)*
 
     ```html
     <script>
@@ -83,7 +83,7 @@ How do these compare?
 
     *See also: [[proposal - `document.templates`]](https://discourse.wicg.io/t/document-templates/1057)*
     
-    *In HTML - See [OOHTML Imports](../html-imports)*
+    *In HTML - as detailed in [OOHTML Imports](../html-imports)*
 
     ```html
     <body>
@@ -93,7 +93,7 @@ How do these compare?
 
     *See also: [[HTML Modules - direction]](https://github.com/WICG/webcomponents/issues/863)*
 
-    **...and the other remains based *only in JavaScript***
+    **But, the other approach remains based _only in JavaScript_**
 
     ```html
     <body>
@@ -104,11 +104,11 @@ How do these compare?
     </body>
     ```
 
-+ **One makes for *lazy-loading and load events*, as with elements like `<img>`...**
++ **OOHTML's approach makes for _lazy-loading plus load events_, as with elements like `<img>`...**
 
-    *JavaScript - See [events](../html-modules#module-events)*
+    *In JavaScript - see [Module events](../html-modules#module-events)*
     
-    *HTML - See [OOHTML Imports](../html-imports)*
+    *In HTML - as detailed in [OOHTML Imports](../html-imports)*
 
     ```html
     <body>
@@ -117,9 +117,9 @@ How do these compare?
     </body>
     ```  
 
-    **...and the other simply does not.**
+    **But, the other approach simply does not.**
 
-Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do HTML in HTML (templates) and JavaScript in JavaScript (ES6 modules).
+Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do all HTML concerns in HTML (templates) and all JavaScript concerns in JavaScript (ES6 modules).
 
 But then, loading **static, inert content**? What about cases where some reusable HTML has to go with some logic? [Subscript](../subscript) could be a good answer! We've had success with the following:
 
