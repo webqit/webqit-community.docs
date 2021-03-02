@@ -121,9 +121,9 @@ How do these compare?
 
 Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do all HTML concerns in HTML (templates) and all JavaScript concerns in JavaScript (ES6 modules).
 
-But then, loading **static, inert content**? What about cases where some reusable HTML has to go with some logic? [Subscript](../subscript) could be a good answer! We've had success with the following:
+But then, it is a common pattern today for some reusable HTML has to go with some logic. And it is interesting how the another of OOHTML's feature - [Subscript](../subscript) - lets us add non-global JavaScript to HTML markup, with everything working happily:
 
-*File: /bundle.html*
+*Remote File: /bundle.html*
 
 ```html
 <div exportgroup="blogPost">
@@ -135,7 +135,7 @@ But then, loading **static, inert content**? What about cases where some reusabl
 </div>
 ```
 
-*Document*
+*Main Document:*
 
 ```html
 <body>
@@ -145,7 +145,7 @@ But then, loading **static, inert content**? What about cases where some reusabl
 </body>
 ```
 
-And how far can this go? We run this in production in <webqit.io>.
+And how far can this go? We run this in production with webqit.io. Our real life success with this pattern is something we want to eagerly publish.
 
 ## State, Observability and Reactivity
 
