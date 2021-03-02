@@ -151,11 +151,11 @@ Primitives for building *reactive* applications and keeping track of very dynami
 
 + **State:** We indeed have some primitives related to the concept of *state*, but they have very limited usecases. An example is [HTML5's DataSet API](https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset) that lets us keep state with HTML elements. But, it turns out to be tied to just HTML data `(data-*)` attributes - making it less useful as a general way to work with application state in the UI.
 
-    Compare OOHTML's [State API](../the-state-api) which gives us robust *state management* - covering both document-level and element-level state, and the concept of automatic observability.
+    Compare OOHTML's [State API](../the-state-api) which gives us robust *state management* - covering both document-level and element-level state, with automatic support for observability.
 
 + **Observability:** Much engineering still goes into using JavaScript's change-detection mechanisms for *reactive* UI development, and some things don't even scale. Check out a consideration of some of those difficulties in [this explainer](https://webqit.io/tooling/observer/explainer).
 
-    Compare the [Observer API](https://github.com/webqit/observer) which provides generic APIs for observing and intercepting JavaScript objects. See its *universal* role across the rest of OOHTML, and potentially other technologies.
+    Compare the [Observer API](https://github.com/webqit/observer) which provides generic functions for observing and intercepting JavaScript objects. See its *universal* role across the rest of OOHTML, and potentially other technologies.
 
 + **Reactivity:** A Reactuve UI binding language? See [Subscript](../subscript). It comes bringing the full power of JavaScript for the job.
 
