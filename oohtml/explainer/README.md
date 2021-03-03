@@ -119,7 +119,7 @@ How do these compare?
 
 Overall, it seems more traditional to us to implement HTML Modules in HTML than in JavaScript, letting us do all HTML concerns in HTML (templates) and all JavaScript concerns in JavaScript (ES6 modules).
 
-But then, it is a common pattern today for some reusable HTML has to go with some logic. And it is interesting how another of OOHTML's feature - [Subscript](../subscript) - lets us add such non-global JavaScript to HTML markup, with everything working happily:
+But then, it is a common pattern today for some reusable HTML has to go with some logic. And it is interesting how another of OOHTML's features - [Subscript](../subscript) - lets us add such non-global JavaScript to HTML markup, with everything working happily:
 
 *Remote File: /bundle.html*
 
