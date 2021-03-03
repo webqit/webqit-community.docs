@@ -119,14 +119,14 @@ The contents of the remote file automatically become the template's content on l
 ### HTML Imports
 HTML Imports are a declarative way to *import* reusable snippets from HTML Modules into slots in the main document.
 
-> It is important to note that this is not the depreciated HTML Imports that shipped with Web Components.
+> Note that this is not the depreciated HTML Imports that earlier shipped with Web Components.
 
 An `<import>` element in the `<body>` area simply points to a module to *place* one of its exports.
 
 ```html
 <body>
 
-    <!-- Import question from module1 here -->
+    <!-- Import question here from module1 -->
     <import name="question" template="module1"></import>
 
 </body>
@@ -144,19 +144,19 @@ Resolution takes place and the `<import>` element is replaced by all of the impo
 </body>
 ```
 
-One or more `<import>` elements could share a *module ID* defined at a higher scope in the tree.
+It is also possible to define the *module ID* on a regular element to control the `<import>` elements within the block.
 
 ```html
 <body>
 
-    <!-- Point to a module -->
+    <!-- Point to a module; one module ID for all imports within -->
     <div template="module1">
 
-        <!-- Import question here -->
+        <!-- Import question here from module1 -->
         <import name="question"></import>
 
         <div>
-            <!-- Import another export here -->
+            <!-- Import another export here from module1 -->
             <import name="export-2"></import>
         </div>
 
@@ -165,7 +165,7 @@ One or more `<import>` elements could share a *module ID* defined at a higher sc
 </body>
 ```
 
-*Imports* maintain a *live* relationship with the modules that are associated with them. For example, they are resolved again when the module ID is dynamically pointed at another module element.
+*Imports* maintain a *live* relationship with the modules they point to. For example, they are resolved again when the module ID is dynamically pointed at another module element.
 
 ```js
 // Changing the module ID on the DIV container above will see all associated imports resolved again
@@ -194,7 +194,7 @@ The following modular markup implements its IDs in namespaces:
 </article>
 ```
 
-The above gives us a conceptual hierarchy of objects:
+The above gives us a conceptual model of repeating objects:
 
 ```html
 continents
@@ -220,16 +220,16 @@ let asia = continents.namespace.asia;
 let aboutAsia = continents.namespace.asia.namespace.about;
 ```
 
-We get a document structure that's easier to reason about and to work with.
+We get a document structure that's easier to reason about and that translates to a more consistent, bankable API.
 
 > We find that Namespacing helps us to (1) write collision-free IDs and selectors, and (2) by means of the Namespace API, minimize selector-based DOM traversal (e.g `el.namespace.some_id` vs `el.querySelector('#some_id')`). Much of our code in the examples below will now use the `namespace` attribute in markup and the `.namespace` property in JS.
 
 *Details are in the [Namespaced HTML](namespaced-html) documentation. Learn more about the convention, Namespaced Selectors, API, observability, and the polyfill support.*
 
 ### The State API
-The State API is a DOM feature that lets us maintain application state at both the document level and the individual element level. It makes it easy to think about application state at different levels in the DOM tree and to keep track of changes at each level.
+The State API is a DOM API that lets us maintain application state at both the document level and the individual element level. It makes it easy to think about application state at different levels in the DOM tree and to keep track of changes at each level.
 
-This API exposes a `.state` property on the document object and on elements. Arbitrary values can be set and read here the same way we work with regular objects.
+This API exposes a `.state` property on the document object and on elements. Arbitrary values can be set and read here the same way we would with regular objects.
 
 ```js
 // At the document level
@@ -253,7 +253,7 @@ Observer.observe(document.state, 'pageTitle', e => {
 
 This lets us build very reactive applications natively.
 
-Using an element's state API, we could make a practical *collapsible* component.
+Using an element's state API, here's how we could make a practical *collapsible* component.
 
 ```html
 <my-collapsible namespace>
