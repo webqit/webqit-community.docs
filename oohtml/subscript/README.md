@@ -249,7 +249,7 @@ While the `this` object and the `document` object are automatically observed fro
     // Create a collection of variables
     let globallyBoundClock = {time: '00:00:00',};
     // Bind them to all Subscript scopes in the document
-    document.bind({globallyBoundClock});
+    document.subscript.bind({globallyBoundClock});
     setInterval(() => {
         // Update existing binding
         Observer.set(globallyBoundClock, 'time', (new Date).toLocaleString());
@@ -260,7 +260,7 @@ While the `this` object and the `document` object are automatically observed fro
     // Create a collection of variables
     let locallyBoundClock = {time: '00:00:00',};
     // Bind them to the current script
-    divElement.bind({locallyBoundClock});
+    divElement.subscript.bind({locallyBoundClock});
     setInterval(() => {
         // Update existing binding for the current script
         Observer.set(locallyBoundClock, 'time', (new Date).toLocaleString());
@@ -273,7 +273,7 @@ While the `this` object and the `document` object are automatically observed fro
 #### API
 The following methods are used to dynamically bind observable variables to Subscript scopes.
 
-+ **document.bind(bindings[, params]): Void** - This method lets us bind objects at the document-level for all Subscript scopes across the document.
++ **document.subscript.bind(bindings[, params]): Void** - This method lets us bind objects at the document-level for all Subscript scopes across the document.
 
     **Parameters:**
     + `bindings: Object` - The object to bind globally for all Subscript scopes in the document.
@@ -282,26 +282,26 @@ The following methods are used to dynamically bind observable variables to Subsc
 
     ```js
     // Undo previous binding, if exists
-    document.bind({
+    document.subscript.bind({
         globallyBoundClock: {time: '00:00:00',};
     });
 
     // ----------
 
     // Update previous binding, if exists
-    document.bind({
+    document.subscript.bind({
         globallyBoundClock2: {time: '00:00:00',};
     }, {update: true});
     ```
 
-+ **document.unbind(): Void** - This method lets us unbind any existing binding from the document.
++ **document.subscript.unbind(): Void** - This method lets us unbind any existing binding from the document.
 
     ```js
     // Unbind existing binding
-    document.unbind();
+    document.subscript.unbind();
     ```
     
-+ **Element.prototype.bind(bindings[, params]): Void** - This method lets us bind objects at the element-level. Objects bound here are automatically-observed in the element's *binding* script.
++ **Element.prototype.subscript.bind(bindings[, params]): Void** - This method lets us bind objects at the element-level. Objects bound here are automatically-observed in the element's *binding* script.
 
     **Parameters:**
     + `bindings: Object` - The object to bind to the element's Subscript scope.
@@ -310,23 +310,23 @@ The following methods are used to dynamically bind observable variables to Subsc
 
     ```js
     // Undo previous binding, if exists
-    divElement.bind({
+    divElement.subscript.bind({
         locallyBoundClock: {time: '00:00:00',};
     });
 
     // ----------
 
     // Update previous binding, if exists
-    divElement.bind({
+    divElement.subscript.bind({
         locallyBoundClock: {time: '00:00:00',};
     }, {update: true});
     ```
 
-+ **Element.prototype.unbind(): Void** - This method lets us unbind any existing binding from an element's *binding* script.
++ **Element.prototype.subscript.unbind(): Void** - This method lets us unbind any existing binding from an element's *binding* script.
 
     ```js
     // Unbind existing binding
-    divElement.unbind();
+    divElement.subscript.unbind();
     ```
 
 ## Error Handling
@@ -379,30 +379,6 @@ The current [OOHTML polyfill implementation](../polyfill) has good support for S
 
         </div>
     </body>
-    ```
-
-+ **[api.bind](#api)** - The *method name* for binding objects to scripts. The standard *method name* is `bind`, but you may use a custom method name, where necessary.
-        
-    ```html
-    <head>
-        <meta name="oohtml" content="api.bind=setBinding;" />
-    </head>
-    ```
-    
-    ```js
-    document.setBinding(binding);
-    ```
-
-+ **[api.unbind](#api)** - The *method name* for unbinding objects from scripts. The standard *method name* is `unbind`, but you may use a custom method name, where necessary.
-        
-    ```html
-    <head>
-        <meta name="oohtml" content="api.bind=clearBinding;" />
-    </head>
-    ```
-    
-    ```js
-    document.clearBinding();
     ```
 
 Learn more about customization and the OOHTML meta tag [here](../the-oohtml-meta-tag).
