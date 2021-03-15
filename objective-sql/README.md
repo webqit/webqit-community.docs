@@ -55,7 +55,7 @@ SELECT post_title, author_id->fname AS author_name FROM posts;
 ## The API
 Objective SQL also lets you work programmatically using a promise-based API.
 
-Here's the API version of the *[Basic Usage](#basic-usage)* query above:
+Here's the API version of the *[Basic Usage](#basic-usage)* query earlier:
 
 ```js
 // The Client.open() method below opens the "default" database at version "0"
@@ -76,7 +76,7 @@ Client.open().then(async DB => {
 ## The Storage
 Objective SQL lets you decide between underlying storage technologies without changing code.
 
-While we've used the inbuilt in-memory store in the examples above, we could easily switch to a persistent storage engine like IndexedDB by simply swiping in the IDB client...
+While we've used the inbuilt in-memory store in the examples above, we could easily switch to a persistent storage engine, like IndexedDB, by simply swiping in the appropriate client...
 
 ```sql
 import {
