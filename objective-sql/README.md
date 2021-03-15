@@ -1,7 +1,7 @@
 ---
 icon: layers
 desc: Fullstack, object-oriented SQL for modern apps; one language and one API over diverse data storage technologies - from in-memory storage, to the client-side IndexedDB, to the server-side database like MySQL.
-desc2: Speak the same familiar, powerful SQL language now with object-oriented conventions for relationships. Or query your data programmatically using an API.
+desc2: Speak the same familiar, powerful SQL language now with object-oriented conventions for relationships. Or query your data programmatically using a succinct API.
 categories: Featured, Libraries
 tags: SQL, Indexed DB, In-Memory Store, Object Store
 _after: webflo
@@ -17,7 +17,7 @@ _after: webflo
 
 [Objective SQL](https://github.com/webqit/objective-sql) is a fullstack, object-oriented SQL for modern apps; one language and one API over diverse data storage technologies - from in-memory storage, to the client-side IndexedDB, to the server-side database like MySQL.
 
-*Speak the same familiar, powerful SQL language now with object-oriented conventions for relationships. Or query your data programmatically using an API.*
+*Speak the same familiar, powerful SQL language now with object-oriented conventions for relationships. Or query your data programmatically using a succinct API.*
 
 > [Visit project repo](https://github.com/webqit/objective-sql).
 
@@ -62,7 +62,7 @@ Here's the API version of the *[Basic Usage](#basic-usage)* query earlier:
 // More on this in the docs
 Client.open().then(async DB => {
 
-    // Next we open the "users" store (or table)
+    // Next we get a handle to the "users" store (or table)
     let userStore = await DB.open('users');
     
     // Then we run a query
@@ -96,16 +96,16 @@ Objective SQL completely embraces the schema idea of SQL, and offers one simple,
 Schema declaration is usually the first step to working with SQL. So, the `users` table we've used in the examples above should already have been declared. Here's how easy it is to do that:
 
 ```js
-Client.create([
-    {
-        name: 'users',
-        primaryKey: 'id',
-        autoIncrement: true,
-        fields: {id: 'number', fname: 'text', lname: 'text',},
-    },
-    {name: 'posts', ...},
-]).then(DB => {
-    // Schema created. DB ready for use
+Client.create([{
+    name: 'users',
+    primaryKey: 'id',
+    autoIncrement: true,
+    fields: {id: 'number', fname: 'text', lname: 'text',},
+}, {
+    name: 'posts',
+    ...
+}]).then(DB => {
+    // Schema created. DB ready for use...
 });
 ```
 
