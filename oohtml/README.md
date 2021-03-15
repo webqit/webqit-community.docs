@@ -1,7 +1,7 @@
 ---
 icon: code-slash
 desc: A suite of new DOM features that particularly facilitates writing modular, reusable, and reactive HTML and JavaScript natively and more conveniently.
-desc2: Handcraft your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code! <!--OOHTML comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.-->
+desc2: Handcraft your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code! OOHTML comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.
 categories: Featured, Web-Native
 tags: OOHTML, CHTML, Proposal
 _before: webflo
@@ -16,6 +16,8 @@ _before: webflo
 <!-- /BADGES -->
 
 [Object-Oriented HTML (OOHTML)](https://github.com/webqit/oohtml) is a suite of new DOM features that particularly facilitates writing *modular*, *reusable*, and *reactive* HTML and JavaScript *natively* and *more conveniently*. It addresses a number of limitions inherent with existing conventions and welcomes much of the paradigms associated with modern UI development.
+
+*Handcraft your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code! OOHTML comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.*
 
 > OOHTML is being proposed as a [W3C standard at the Web Platform Incubator Community Group](https://discourse.wicg.io/t/proposal-chtml/4716). Consider bringing your ideas to the discussion.
 
