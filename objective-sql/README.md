@@ -95,3 +95,18 @@ Objective SQL completely embraces the schema idea of SQL, and offers one simple,
 
 Schema declaration is usually the first step to working with SQL. So, the `users` table we've used in the examples above should already have been declared. Here's how easy it is to do that:
 
+```js
+Client.create([
+    {
+        name: 'users',
+        primaryKey: 'id',
+        autoIncrement: true,
+        fields: {id: 'number', fname: 'text', lname: 'text',},
+    },
+    {name: 'posts', ...},
+]).then(DB => {
+    // Schema created. DB ready for use
+});
+```
+
+[Learn more about Schemas](schemas) and see just what's possible. (DOCS coming soon.)
