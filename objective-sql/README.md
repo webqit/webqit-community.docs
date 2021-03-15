@@ -20,3 +20,72 @@ _after: webflo
 *Speak the same familiar, powerful SQL language now with object-oriented conventions for relationships. Or query your data programmatically using an API.*
 
 > [Visit project repo](https://github.com/webqit/objective-sql).
+
+## Basic Usage
+The following code works both in node.js and in browsers.
+
+```js
+// Import the inbuilt Object Storage library as the query client
+import { ODB as Client } from '@webqit/objective-sql';
+
+// Run a query
+Client.query('SELECT fname, lname FROM users').then(result => {
+    console.log(result);
+});
+```
+
+## The Language
+Objective SQL is the same familiar, powerful SQL language...
+
+```sql
+SELECT post_title, users.fname AS author_name FROM posts
+LEFT JOIN users ON users.id = posts.author_id;
+```
+
+...but with an object-oriented syntax for relationships...
+
+```sql
+SELECT post_title, author_id->fname AS author_name FROM posts;
+```
+
+...and that's SQL without the query complexity!
+
+[Learn more about the language](the-language) and see just what's possible. (DOCS coming soon.)
+
+## The API
+Objective SQL also lets you work programmatically using a promise-based API.
+
+Here's the API version of the *[Basic Usage](#basic-usage)* query above:
+
+```js
+// The Client.open() method below opens the "default" database at version "0"
+// More on this in the docs
+Client.open().then(async DB => {
+
+    // Next we open the "users" store (or table)
+    let userStore = await DB.open('users');
+    
+    // Then we run a query
+    let result = await userStore.getAll();
+    console.log(result);
+});
+```
+
+[Learn more about the API](the-api) and see just what's possible. (DOCS coming soon.)
+
+## The Storage
+Objective SQL lets you decide between underlying storage technologies without changing code.
+
+While we've used the inbuilt in-memory store in the examples above, we could easily switch to a persistent storage engine like IndexedDB by simply swiping in the IDB client...
+
+```sql
+import {
+    //ODB as Client,
+    IDB as Client,
+    //SQL as Client,
+} from '@webqit/objective-sql';
+```
+
+...and the rest of the code can remain functional. 
+
+[Learn more about Storage](storage) and see just what's possible. (DOCS coming soon.)
