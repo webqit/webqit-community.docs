@@ -73,12 +73,12 @@ Client.open().then(async DB => {
 
 [Learn more about the API](the-api) and see just what's possible. (DOCS coming soon.)
 
-## The Storage
+## Storage
 Objective SQL lets you decide between underlying storage technologies without changing code.
 
 While we've used the inbuilt in-memory store in the examples above, we could easily switch to a persistent storage engine, like IndexedDB, by simply swiping in the appropriate client...
 
-```sql
+```js
 import {
     //ODB as Client,
     IDB as Client,
@@ -89,3 +89,7 @@ import {
 ...and the rest of the code can remain functional. 
 
 [Learn more about Storage](storage) and see just what's possible. (DOCS coming soon.)
+
+## Schemas
+Objective SQL completely embraces the schema idea of SQL, and offers one simple, universal way to write these schemas that describe your data, whatever the underlying storage engine. 
+
