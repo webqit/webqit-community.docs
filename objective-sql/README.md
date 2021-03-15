@@ -113,7 +113,7 @@ Schema declaration is usually the first step to working with SQL. So, the `users
     let users = await DB.open('users', 'readwrite');
     users.addAll([
         {fname: 'John', lname: 'Doe', email: 'john.doe@example.com', age: 33},
-		{fname: 'James', lname: 'Smith', email: 'john.doe@example.com', age: 40},
+	{fname: 'James', lname: 'Smith', email: 'john.doe@example.com', age: 40},
     ]);
 })();
 ```
