@@ -91,5 +91,7 @@ import {
 [Learn more about Storage](storage) and see just what's possible. (DOCS coming soon.)
 
 ## Schemas
-Objective SQL completely embraces the schema idea of SQL, and offers one simple, universal way to write these schemas that describe your data, whatever the underlying storage engine. 
+Objective SQL completely embraces the schema idea of SQL, and offers one simple, universal way to write these schemas that describe your data - whatever the underlying storage engine.
+
+Schema declaration is usually the first step to working with SQL. So, the `users` table we've used in the examples above should already have been declared. Here's how easy it is to do that:
 
