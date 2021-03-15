@@ -20,5 +20,3 @@ _after: oohtml
 *Start on a clean slate, in zero-abstraction, zero-config, and zero-dependency. Develop and deploy anything from a simple <code>'Hello World!'</code> to rich web and mobile experiences.*
 
 > [Visit project repo](https://github.com/webqit/webflo).
-
-> [Visit project homepage](https://webqit.io/tooling/webflo).
