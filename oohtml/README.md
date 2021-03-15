@@ -23,8 +23,6 @@ _before: webflo
 
 > [Visit project repo](https://github.com/webqit/oohtml).
 
-> [Visit project homepage](https://webqit.io/tooling/oohtml).
-
 > This entire documentation is currently being improved on.
 
 ## Features
