@@ -1,7 +1,7 @@
 ---
 icon: code-slash
-desc: Object-Oriented HTML (OOHTML) - a suite of new DOM features that particularly facilitates writing modular, reusable, and reactive HTML and JavaScript natively and more conveniently.
-desc2: Handcraft your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code! OOHTML comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.
+desc: A suite of new DOM features that particularly facilitates writing modular, reusable, and reactive HTML and JavaScript natively and more conveniently.
+desc2: Handcraft your HTML, CSS and JavaScript into a powerful UI without writing a line of framework-specific code! <!--OOHTML comes with all modern UI development paradigms built into the plain old HTML so you can go without a tool.-->
 categories: Featured, Web-Native
 tags: OOHTML, CHTML, Proposal
 _before: webflo
