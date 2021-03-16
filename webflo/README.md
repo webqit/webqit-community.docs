@@ -123,4 +123,23 @@ Worker-level routing lies between the client-level routing and the server-side r
 > There are great usecases. For example, requests that are not initiated by the user cannot be caught by client-level routers but can be caught by worker-level routers. Worker-level routing is covered in [this tutorial](learn/worker-level-routing).
 
 ### Routing
-Webflo lets you follow the traditional filesystem layout for your project. The concept of routing is simply drawn on this layout. 
+As seen, Webflo lets you follow the traditional filesystem layout for your project. The concept of routing is simply drawn on this layout. It is all about the *request/response flow and the path it takes*. Webflo's skillfulness with *flows* is really the meaning of its name.
+
+#### Layered Routing
+The project layout above lets you place route handlers at a desired point along a *vertical* request/response flow between the client and the server. Here's that layout now in the order of flow.
+
++ `/client` - *where implemented, requests are either handled here or forwarded down*
++ `/worker` - *where implemented, requests are either handled here or forwarded down*
++ `/server` - *where implemented, requests are either handled here or forwarded down*
++ `/public` - *where implemented, requests are automatically mapped to static file responses*
+
+The type of application you're building will determine where you choose to implement routing. It could be just client-side routing, just server-side routing, fullstack routing or any combination of it.
+
+#### Step Routing
+Webflo also lets you follow a layout pattern that maps URL paths to filesystem paths. You'd expect this behaviour for static files laid out in the `/public` directory. For example, the request URL `/` expects to find a file at `/public/index.html`, and the request URL `/products` expects to find a file at `/public/products/index.html`, and so on. (URLs with filenames, like `/css/main.css`, also work the same; i.e, expects to find a file at `/public/css/main.css`.)
+
+Webflo draws on this traditional pattern and lets you lay out route handlers *horizontally* along URL paths this way. For example, if you're doing server-side routing, the request URL `/` expects to hit a route handler at `/server/index.js`, and the request URL `/products` expects to hit a route handler at `/server/products/index.js`, and so on. But an import concept in this horizontal layout is *step routing*, which lets a request *flow* through every handler in the route path until it hits the final handler. That means that the request URL `/products` is going to flow this way:
+
+* `/server/index.js` --> `/server/products/index.js`
+
+Step routing is the best way to orchestrate routes.
