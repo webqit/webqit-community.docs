@@ -123,4 +123,4 @@ Worker-level routing lies between the client-level routing and the server-side r
 > There are great usecases. For example, requests that are not initiated by the user cannot be caught by client-level routers but can be caught by worker-level routers. Worker-level routing is covered in [this tutorial](learn/worker-level-routing).
 
 ### Routing
-Webflo lets you follow the traditional filesystem layout for your project.
+Webflo lets you follow the traditional filesystem layout for your project. The concept of routing is simply drawn on this layout. 
