@@ -25,7 +25,7 @@ _after: oohtml
 Webflo is a command-line tool for developing and running your application. We recommended you install it globally on your machine.
 
 ```bash
-npm i -g @webqit/webflo
+npm install -g @webqit/webflo
 ```
 
 We can now use the `webflo` command from any location in the terminal. To test, run `webflo help`; an overview of available commands will be shown.
