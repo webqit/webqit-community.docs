@@ -42,21 +42,23 @@ mkdir webflo-app
 cd webflo-app
 ```
 
-### Directory Structure
+### Project Layout
 It's a good practice to locate certain project files in conventional places. Webflo is thus able to automatically identify them at runtime. Here's an overview (keep in mind that everything below is optional, and/or can be renamed):
 
-#### The `public` Directory
++ `/public`
++ `/server`
++ `/client`
++ `/worker`
 
-+ `/webflo-app`
-    + `/public`
+Let's now see what goes into each directory, and how they're all related.
 
+#### The `/public` Directory
 If you intend to have static files (like images or CSS files) that should be served automatically, place them in this directory.
 
 Your application's start page - `index.html` - should also be here.
 
-+ `/webflo-app`
-    + `/public`
-        + `/index.html` - *Try add some Hello World greeting.*
++ `/public`
+    + `/index.html` - *Try add some Hello World greeting.*
 
 Now, when you start the Webflo server and navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, the start page is shown.
 
@@ -64,20 +66,15 @@ Now, when you start the Webflo server and navigate to `http://localhost:3000/` (
 webflo start
 ```
 
-> Ensure you're at project root `/webflo-app` in your terminal to run this and subsequent Webflo commands.
+> Ensure that you are at your project root `/webflo-app` in the terminal to run this and subsequent Webflo commands.
 
 > Now, if all you're creating is a static site, your work ends in this directory! Static file serving is covered in [this tutorial](learn/static-files).
 
-#### The `server` Directory
-
-+ `/webflo-app`
-    + `/server`
-
+#### The `/server` Directory
 If you intend to have JavaScript files that handle dynamic routing on the server, place them in this directory.
 
-+ `/webflo-app`
-    + `/server`
-        + `/index.js` - *This is a server-side route handler.*
++ `/server`
+    + `/index.js` - *This is a server-side route handler.*
 
 Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, the route handler in `index.js` is hit first with the HTTP request. It then decides to either return a certain *response data* or simply allow the request to *flow* to the intended `index.html`.
 
@@ -85,16 +82,11 @@ So, route handlers can both return response data of their own and act as a gatew
 
 > Now, if all you're creating is a traditional server-side application or simply an API backend, your work ends in this directory! Server-side routing is covered in [this tutorial](learn/server-side-routing).
 
-#### The `client` Directory
-
-+ `/webflo-app`
-    + `/client`
-
+#### The `/client` Directory
 If you intend to have JavaScript files that handle routing in the browser, place them in this directory.
 
-+ `/webflo-app`
-    + `/client`
-        + `/index.js` - *This is a client-side route handler.*
++ `/client`
+    + `/index.js` - *This is a client-side route handler.*
 
 Next, run a Webflo command that automatically builds these files into a script that you can include on your page.
 
@@ -110,16 +102,11 @@ As we will see, being able to either return an in-browser response data or act a
 
 > If all you're creating is a client-side application, your work ends in this directory! Client-side routing is covered in [this tutorial](learn/client-side-routing).
 
-#### The `worker` Directory
-
-+ `/webflo-app`
-    + `/worker`
-
+#### The `/worker` Directory
 What happens here is quite advanced and you can ignore this until you really need it. But if you already know about application Service Workers and intend to implement routing at the service-worker level, place your route handlers in this directory.
 
-+ `/webflo-app`
-    + `/worker`
-        + `/index.js` - *This is a worker-level route handler.*
++ `/worker`
+    + `/index.js` - *This is a worker-level route handler.*
 
 Next, run a Webflo command that automatically builds these files, *along with any client-side routers* above, into a script that you can include on your page.
 
@@ -134,3 +121,6 @@ Now, what happens is, when you navigate to, or try to navigate away from `http:/
 Worker-level routing lies between the client-level routing and the server-side routing. This middle routing layer is especially helpful when you're really creating a deep offline experience on your app that client-level routing alone does not satisfy.
 
 > There are great usecases. For example, requests that are not initiated by the user cannot be caught by client-level routers but can be caught by worker-level routers. Worker-level routing is covered in [this tutorial](learn/worker-level-routing).
+
+### Routing
+Webflo lets you follow the traditional filesystem layout for your project.
