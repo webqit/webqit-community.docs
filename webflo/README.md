@@ -22,7 +22,7 @@ _after: oohtml
 > [Visit project repo](https://github.com/webqit/webflo).
 
 ## Prerequisites
-Webflo is a command-line tool for developing and running your application. We recommended you install it globally on your machine.
+Webflo is a command-line tool for developing and running your application. It is recommended you install it globally on your machine.
 
 ```bash
 npm install -g @webqit/webflo
