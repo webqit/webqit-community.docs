@@ -17,12 +17,12 @@ _after: webflo
 
 [Objective SQL](https://github.com/webqit/objective-sql) is a fullstack, object-oriented SQL for modern apps; one language and one API over diverse data storage technologies - from in-memory storage, to the client-side IndexedDB, to the server-side database like MySQL.
 
-*Speak the same familiar, powerful SQL language now with object-oriented conventions for relationships. Or query your data programmatically using a succinct API.*
+*Speak the same familiar SQL language, this time, with an object-oriented convention for relationships. Or query your data programmatically using a succinct API.*
 
 > [Visit project repo](https://github.com/webqit/objective-sql).
 
 ## Basic Usage
-The following code works both in node.js and in browsers.
+Objective SQL works both in node.js and in the browser. Here's a node.js example:
 
 ```js
 // Import the inbuilt Object Storage library as the query client
@@ -53,7 +53,7 @@ SELECT post_title, author_id->fname AS author_name FROM posts;
 [Learn more about the language](the-language) and see just what's possible with the *arrow* syntax. (DOCS coming soon.)
 
 ## The API
-Objective SQL also lets you work programmatically using a promise-based API.
+Objective SQL also lets us work programmatically using a promise-based API.
 
 Here's the API version of the *[Basic Usage](#basic-usage)* query we started with:
 
@@ -74,9 +74,9 @@ Client.open().then(async DB => {
 [Learn more about the API](the-api) and see just what's possible. (DOCS coming soon.)
 
 ## Storage
-Objective SQL lets you decide between underlying storage technologies without changing code.
+Objective SQL lets us decide between underlying storage technologies without changing code.
 
-While we've used the inbuilt in-memory store in the examples above, we could easily switch to a persistent storage engine, like IndexedDB, by simply swiping in the appropriate client...
+While we've used the inbuilt in-memory store in the examples above, we could easily switch to a persistent storage engine, like the IndexedDB that ships with browsers, by simply swiping in the appropriate client in the `import` statement...
 
 ```js
 import {
@@ -86,7 +86,7 @@ import {
 } from '@webqit/objective-sql';
 ```
 
-...and the rest of the code can remain functional. 
+...and the rest of the code can go on "as is". 
 
 [Learn more about Storage](storage) and see just what's possible. (DOCS coming soon.)
 
