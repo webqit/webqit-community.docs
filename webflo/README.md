@@ -51,10 +51,10 @@ We should now learn the following concepts on which Webflo is built:
 ### Project Layout
 It's a good practice to locate certain project files in conventional places. Webflo is thus able to automatically identify them at runtime. Here's an overview (keep in mind that everything below is optional, and/or can be renamed):
 
-+ `/public`
-+ `/server`
-+ `/client`
-+ `/worker`
++ [`/public`](#the-public-directory)
++ [`/server`](#the-server-directory)
++ [`/client`](#the-client-directory)
++ [`/worker`](#the-worker-directory)
 
 Let's now see what goes into each directory, and how they're all related.
 
@@ -88,72 +88,83 @@ So, route handlers can both return *response data* of their own and act as a gat
 
 So far, with just two files - `/public/index.html` and `/server/index.js` - we can already return either of three responses for the URL `http://localhost:3000/`: a JSON API response, a static HTML response, a dynamically-rendered HTML response. Code examples ahead.
 
-> Now, if all you're creating is a traditional server-side application or simply an API backend, your work ends in this directory! Server-side routing is covered in [this tutorial](learn/server-side-routing).
+> Now, if all you're creating is a traditional server-side application or simply an API backend, your work ends in this directory! Routing is covered in the next [section](#routing). And [here](learn/server-side-routing) are server-side routing examples.
 
 #### The `/client` Directory
-If you intend to have JavaScript files that handle routing in the browser, place them in this directory.
+If you intend to have JavaScript files that handle routing (e.g navigation requests) in the browser, place them in this directory.
 
 + `/client`
     + `/index.js` - *This is a client-side route handler.*
 
-Next, run a Webflo command that automatically builds these files into a script that you can include on your page.
+Next, run a Webflo command that automatically *builds* these files into a single script that you can include on your `/public/index.html` page.
 
 ```bash
 webflo build
 ```
 
-> Client builds are covered later on. But let's assume for now that the generated JavaScript file is now linked to in the HTML page.
+> Client builds are covered later on. But let's assume for now that the generated JavaScript file is now included in the HTML page.
 
 Now, what happens is, when you navigate to, or try to navigate away from `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, this client-side route handler is hit first with the HTTP request. It then decides to either return an in-browser *response data* or simply allow the request to *flow* to the server - all while preventing the browser doing a page reload.
 
 As we will see, being able to either return an in-browser response data or act as a gateway for the request/response flow is a powerful way to create fast and smooth client-side experiences.
 
-> If all you're creating is a client-side application, your work ends in this directory! Client-side routing is covered in [this tutorial](learn/client-side-routing).
+At this point, with just three files - `/public/index.html`, `/server/index.js` and `/client/index.js` - we can already have either a static site, an API backend, a server-side app, a client-side app, or a combination of all of these. Code examples ahead.
+
+> Okay, if all you're creating is a client-side application, your work ends in this directory! Routing is covered in the next [section](#routing). And [here](learn/client-side-routing) are client-side routing examples.
 
 #### The `/worker` Directory
-What happens here is quite advanced and you can ignore this until you really need it. But if you already know about application Service Workers and intend to implement routing at the service-worker level, place your route handlers in this directory.
+What happens here is quite advanced and you can ignore this until you really need it. But if you already know about application Service Workers and intend to enhance your app's client-side experience with Service Workers, Webflo lets you implement routing at the service-worker level, and you place your route handlers in this directory.
 
 + `/worker`
     + `/index.js` - *This is a worker-level route handler.*
 
-Next, run a Webflo command that automatically builds these files, *along with any client-side routers* above, into a script that you can include on your page.
+Next, run a Webflo command that automatically *builds* these files into a single script that will form part of the service worker file for your page.
 
 ```bash
 webflo build
 ```
 
-> Client builds are covered later on. But let's assume for now that the generated JavaScript file is now linked to in the HTML page.
+> Worker builds are covered later on. But let's assume for now that the generated JavaScript file is now part of the service worker file for your page.
 
-Now, what happens is, when you navigate to, or try to navigate away from `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, *and the HTTP navigation request is passed on from the initial client-side routing layer, where exists*, this worker-level route handler is hit next with the request. It then decides to either return an in-browser *response data* or simply allow the request to *flow* to the server.
+Now, what happens is, when you navigate to, or try to navigate away from `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, *and the HTTP navigation request is passed on from the initial client-side route handler `/client/index.js`, where exists*, the request next hits this worker-level route handler. This handler then decides to either return an in-browser *response data* or simply allow the request to finally *flow* to the server.
 
-Worker-level routing lies between the client-level routing and the server-side routing. This middle routing layer is especially helpful when you're really creating a deep offline experience in your application that client-level routing alone does not satisfy. For example, certain requests are not initiated by the end user and cannot be caught by client-level routers. These requests can only be caught by worker-level routers.
+Woohoo! With a combition of just four files - `/public/index.html`, `/server/index.js`, `/client/index.js` and `/worker/index.js` - we can already have any type of application with great offline experiences.
 
-> Worker-level routing is covered in [this tutorial](learn/worker-level-routing).
+> It is even just possible to build an entire app out of the `/worker` directory alone! Routing is covered in the next [section](#routing). And [here](learn/worker-level-routing) are worker-level routing examples. Service Workers are covered in detail in [the Progressive Web Apps (PWA) tutorial](learn/progressive-web-apps).
 
 ### Routing
-As seen, Webflo lets us follow the traditional filesystem layout for a project. The concept of routing is simply drawn on this layout. It is all about the *request/response flow and the path it takes*. Webflo's skillfulness with *flows* is probabbly the best thing about its name.
+As seen, Webflo lets us follow the traditional filesystem layout for a project. The concept of routing is simply drawn on this layout. It is all about the *request/response flow and what happens along the path it takes*. Webflo's *skillfulness with flows* is probabbly the best thing about its name.
 
-#### Layered Routing
-The project layout above lets us place route handlers at a desired point along a *vertical* request/response flow between the client and the server. Here's that layout now in the order of flow.
+If we've grasped the concept of [project layout](#project-layout) above, we've done routing in Webflo, basically. What we will now cover is orchestrating routes along the request/response flow.
 
-+ `/client` - (where implemented) *requests are either handled here or forwarded down*
-+ `/worker` - (where implemented) *requests are either handled here or forwarded down*
-+ `/server` - (where implemented) *requests are either handled here or forwarded down*
-+ `/public` - (where implemented) *requests are automatically mapped to static files*
+In Webflo, we can implement routing at *vertical layers* between the client and the server. And in a routing layer, we can lay out route handlers in *horizontal steps* for URL paths with more than one level (e.g `/a/b/c`).
+
++ [Vertical Routing Layers](#vertical-routing-layers)
++ [Horizontal Routing Steps](#horizontal-routing-steps)
++ [Route Handlers](#route-handlers)
++ [Static Files](#static-files)
+
+#### Vertical Routing Layers
+Each directory discussed in the [Project Layout](#project-layout) section above lives at a point on a vertical path between the client and the server. Here's that layout now in the order of request/response flow.
+
++ -> enter `/client` if exists; continue?
++ -> enter `/worker` if exists; continue?
++ -> enter `/server` if exists; continue?
++ -> enter `/public` if exists; match a static file.
 
 As seen in the [Project Layout](#project-layout) section above, the type of application you're building will determine where you choose to implement routing. It could be just client-side routing, just server-side routing or fullstack routing in any combination of it, as we will see soon.
 
-#### Step Routing
-Webflo also lets us follow a layout pattern that maps URL paths to filesystem paths. We'd expect this behaviour for static files laid out in the `/public` directory. For example, the request URL `/` would be expected to find a file at `/public/index.html`, and the request URL `/products` would be expected to find a file at `/public/products/index.html`, and so on. (URLs with filenames, like `/assets/main.css`, would also be expected to work the same; i.e, find a file at `/public/assets/main.css`.)
+#### Horizontal Routing Steps
+Each level of an URL path (e.g `/a/b/c`) is a place to implement a route handler. If we chose to do routing in the `/server` directory, for a example, the request URL `/` would be mapped to a route handler at `/server/index.js`, and the request URL `/products` would be mapped to a route handler at `/server/products/index.js`, and so on.
 
-Webflo draws further on this convention to let us lay out route handlers *horizontally* along URL paths. For example, if you're doing server-side routing, the request URL `/` would be mapped to a route handler at `/server/index.js`, and the request URL `/products` would be mapped to a route handler at `/server/products/index.js`, and so on. But an important concept in this horizontal layout is *step routing*, which is the idea of making a request *flow* through every handler in the route path until it hits the final handler. That means that the request URL `/products` would actually flow like this:
+But in Webflo, requests are processed in steps along an URL path, that is, made to *flow* through every handler in the route path until it hits the final handler. Here, the request URL `/products` would actually flow like this:
 
 + -> enter `/server`
-    + -> enter `/index.js`
+    + -> call `/index.js`; continue?
     + -> enter `/products`
-        + -> enter `/index.js`
+        + -> call `/index.js`; return response.
 
-As you will see, step routing is the most-empowering way to orchestrate routes.
+This is called *step routing*, and its the most-empowering way to orchestrate routes. 
 
 #### Route Handlers
 Route handlers are `index.js` files that are laid out in the routing directory to handle the application's request/response flow. The most important content of these files are a simple function that is exported as the *default export* of the file.
@@ -217,14 +228,13 @@ Given the following layout...
 The request URL `/index.html` would flow this way:
 
 + -> enter `/server`
-    + -> enter `/index.js`; test `next.pathname`: `'index.html'`; then `next()`
-+ -> enter `/public`
-    + -> serve `/index.html`
+    + -> call `/index.js`; continue? Yes! (test `next.pathname`: `'index.html'`; then `next()`)
++ -> enter `/public`; match `index.html`
 
 While, the client request URL `/` would flow this way:
 
 + -> enter `/server`
-    + -> enter `/index.js`; test `next.pathname`: `''`; return `{ title: 'Hello World', }`
+    + -> call `/index.js`; continue? No! (test `next.pathname`: `''`; return `{ title: 'Hello World', }`)
 
 This way, *static file URLs* are properly allowed at this critical point in the application's URL-handling. Also noteworthy is that the *static file URL*  `/index.html` is still handled differently from the *path URL* `/`. Thanks to `next.pathname` and `next()`.
 
@@ -254,11 +264,10 @@ As a general rule, it is good to always use `next.pathname`and `next()` to prope
     Here is how that would flow:
         
     + -> enter `/server`
-        + -> enter `/index.js`; test `next.pathname`: `'products/specials/index.html'`; then `next()`
+        + -> call `/index.js`; continue? Yes! (test `next.pathname`: `'products/specials/index.html'`; then `next()`)
         + -> enter `/products`
-            + -> enter `/index.js`; test `next.pathname`: `'specials/index.html'`; then `next()`
-    + -> enter `/public`
-        + -> serve `/products/specials/index.html`
+            + -> call `/index.js`; continue? Yes! (test `next.pathname`: `'specials/index.html'`; then `next()`)
+    + -> enter `/public`; match `products/specials/index.html`
 
     > A side benefit we've enjoyed with this `products/specials` URL is the convenience of having it begin life as a static route until we can make it dynamic by creating a route handler for it.
 
@@ -297,5 +306,8 @@ Parameter passing is a great way to implement one source of truth for subsequent
 
 ##### The `process` Object
 When called, route handlers recieve very useful information about the ongoing HTTP process. This and a few other metadata are passed together as an object into the first parameter of the handler - the `process` parameter.
+
+#### Static Files
+Webflo also lets us follow a layout pattern that maps URL paths to filesystem paths. We'd expect this behaviour for static files laid out in the `/public` directory. For example, the request URL `/` would be expected to find a file at `/public/index.html`, and the request URL `/products` would be expected to find a file at `/public/products/index.html`, and so on. (URLs with filenames, like `/assets/main.css`, would also be expected to work the same; i.e, find a file at `/public/assets/main.css`.)
 
 ### HTTP Requests and Responses
