@@ -82,9 +82,11 @@ If you intend to have JavaScript files that handle dynamic routing on the server
 + `/server`
     + `/index.js` - *This is a server-side route handler.*
 
-Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, the route handler in `index.js` is hit first with the HTTP request. It then decides to either return its own response (in object format) or simply allow the request to *flow* to the default `/public/index.html` file.
+Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, the route handler in `index.js` is hit first with the HTTP request. It then decides to either return its own response (in object format) or simply allow the request to *flow* to the default `/public/index.html` file, in which case an *HTML response* is returned.
 
-So, route handlers can both return *response data* of their own and act as a gateway for the request/response flow. As we will see shortly, response data returned from route handlers can either serve as *automatic JSON (API) responses* or get rendered into the default `/public/index.html` file and returned as an *HTML response*.
+So, route handlers can both return *response data* of their own and act as a gateway for the request/response flow. As we will see shortly, response data returned from route handlers can either serve as *automatic JSON (API) responses* or get rendered into the default `/public/index.html` file and returned as a rendered *HTML response*.
+
+So far, with just two files - `/public/index.html` and `/server/index.js` - we can already return either of three responses for the URL `http://localhost:3000/`: a JSON API response, a static HTML response, a dynamically-rendered HTML response. Code examples ahead.
 
 > Now, if all you're creating is a traditional server-side application or simply an API backend, your work ends in this directory! Server-side routing is covered in [this tutorial](learn/server-side-routing).
 
