@@ -33,9 +33,9 @@ We can now use the `webflo` command from any location in the terminal. To test, 
 Webflo is so simple to use that you do not need any starter tool like `create-webflo-app`. It's strengths actually lie in letting you hand-craft your app!
 
 ## Concepts
-Every project starts on an empty directory that you can create anywhere on your machine. And every file you will create here is going to be all about your application; Webflo doesn't even make a footprint on your project.
+Every project starts on an empty directory that you can create anywhere on your machine. And every file you will create here is going to be all about your application; Webflo doesn't even own a footprint on your project.
 
-Just for the examples below, create a directory named `webflo-app` and navigate there on your terminal:
+Just for the examples below, create a directory named `webflo-app` and navigate there from your terminal:
 
 ```bash
 mkdir webflo-app
@@ -72,14 +72,14 @@ Now, when you start the Webflo server and navigate to `http://localhost:3000/` (
 webflo start
 ```
 
-> Ensure that you are at your project root `/webflo-app` in the terminal to run this and subsequent Webflo commands.
+> Ensure that you are at your project root `webflo-app` in the terminal to run the above Webflo command, and subsequent ones.
 
 > Now, if all you're creating is a static site, your work ends in this directory!
 
-Webflo serves static files by simply mapping URL paths to filesystem paths. For example, the request URL `/` would match the file `/public/index.html`, and the request URL `/products` would match the file `/public/products/index.html`, and so on. (URLs with filenames, like `/assets/main.css`, would also work the same; i.e, match the file `/public/assets/main.css`.)
+Webflo serves static files by simply mapping URL paths to filesystem paths. For example, the request URL `/` (or `/index.html`) would match the file `/public/index.html`, and the request URL `/products` (or `/products/index.html`) would match the file `/public/products/index.html`, and so on. (URLs with filenames, like `/assets/main.css`, would also work the same; i.e, match the file `/public/assets/main.css`.)
 
 #### The `/server` Directory
-If you intend to have JavaScript files that handle dynamic routing on the server, place them in this directory.
+If you intend to have JavaScript files that handle dynamic  on the server, place them in this directory.
 
 + `/server`
     + `/index.js` - *This is a server-side route handler.*
