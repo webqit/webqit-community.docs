@@ -82,9 +82,9 @@ If you intend to have JavaScript files that handle dynamic routing on the server
 + `/server`
     + `/index.js` - *This is a server-side route handler.*
 
-Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, the route handler in `index.js` is hit first with the HTTP request. It then decides to either return a certain *response data* or simply allow the request to *flow* to the intended `index.html`.
+Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, the route handler in `index.js` is hit first with the HTTP request. It then decides to either return its own response (in object format) or simply allow the request to *flow* to the default `/public/index.html` file.
 
-So, route handlers can both return response data of their own and act as a gateway for the request/response flow. As we will see shortly, response data returned from route handlers can either serve as *automatic JSON (API) responses* or get rendered into an HTML file and return as an *HTML responses*.
+So, route handlers can both return *response data* of their own and act as a gateway for the request/response flow. As we will see shortly, response data returned from route handlers can either serve as *automatic JSON (API) responses* or get rendered into the default `/public/index.html` file and returned as an *HTML response*.
 
 > Now, if all you're creating is a traditional server-side application or simply an API backend, your work ends in this directory! Server-side routing is covered in [this tutorial](learn/server-side-routing).
 
