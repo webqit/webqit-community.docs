@@ -86,6 +86,10 @@ If you intend to have JavaScript files that handle dynamic routing on the server
 
 Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, the route handler in `index.js` is hit first with the HTTP request. It then decides to either return its own response (in object format) or simply allow the request to *flow* to the default `/public/index.html` file, in which case an *HTML response* is returned.
 
++ -> enter `/server`
+    + -> call `index.js`; continue?
++ -> enter `/public` if exists; match `index.html`
+
 So, route handlers can both return *response data* of their own and act as a gateway for the request/response flow. As we will see shortly, response data returned from route handlers can either serve as *automatic JSON (API) responses* or get rendered into the default `/public/index.html` file and returned as a rendered *HTML response*.
 
 So far, with just two files - `/public/index.html` and `/server/index.js` - we can already return either of three responses for the URL `http://localhost:3000/`: a JSON API response, a static HTML response, a dynamically-rendered HTML response. Code examples ahead.
@@ -107,6 +111,12 @@ webflo build
 > Client builds are covered later on. But let's assume for now that the generated JavaScript file is now included in the HTML page.
 
 Now, what happens is, when you navigate to, or try to navigate away from `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, this client-side route handler is hit first with the HTTP request. It then decides to either return an in-browser *response data* or simply allow the request to *flow* to the server - all while preventing the browser doing a page reload.
+
++ -> enter `/client`
+    + -> call `index.js`; continue?
++ -> enter `/server` if exists
+    + -> call `index.js`; continue?
++ -> enter `/public` if exists; match `index.html`
 
 As we will see, being able to either return an in-browser response data or act as a gateway for the request/response flow is a powerful way to create fast and smooth client-side experiences.
 
@@ -130,6 +140,14 @@ webflo build
 
 Now, what happens is, when you navigate to, or try to navigate away from `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, *and the HTTP navigation request is passed on from the initial client-side route handler `/client/index.js`, where exists*, the request next hits this worker-level route handler. This handler then decides to either return an in-browser *response data* or simply allow the request to finally *flow* to the server.
 
++ -> enter `/client` if exists
+    + -> call `index.js`; continue?
++ -> enter `/worker`
+    + -> call `index.js`; continue?
++ -> enter `/server` if exists
+    + -> call `index.js`; continue?
++ -> enter `/public` if exists; match `index.html`
+
 Woohoo! With a combition of just four files - `/public/index.html`, `/server/index.js`, `/client/index.js` and `/worker/index.js` - we can already have any type of application with great offline experiences.
 
 > It is even just possible to build an entire app out of the `/worker` directory alone! Routing is covered in the next [section](#routing). And [here](learn/worker-level-routing) are worker-level routing examples. Service Workers are covered in detail in [the Progressive Web Apps (PWA) tutorial](learn/progressive-web-apps).
@@ -139,7 +157,7 @@ As seen, Webflo lets us follow the traditional filesystem layout for a project. 
 
 If we've grasped the concept of [project layout](#project-layout) above, we've done routing in Webflo, basically. What we will now cover is orchestrating routes along the request/response flow.
 
-In Webflo, we can implement routing at *vertical layers* between the client and the server. And in a routing layer, we can lay out route handlers in *horizontal steps* for URL paths with more than one level (e.g `/a/b/c`).
+In Webflo, we can implement routing at *vertical layers* between the client and the server. And in a routing layer, we can lay out route handlers in *horizontal steps* for URL paths of more than one level (e.g `/a/b/c`).
 
 + [Vertical Routing Layers](#vertical-routing-layers)
 + [Horizontal Routing Steps](#horizontal-routing-steps)
