@@ -74,7 +74,9 @@ webflo start
 
 > Ensure that you are at your project root `/webflo-app` in the terminal to run this and subsequent Webflo commands.
 
-> Now, if all you're creating is a static site, your work ends in this directory! Static file serving is covered in [this tutorial](learn/static-files).
+> Now, if all you're creating is a static site, your work ends in this directory!
+
+Webflo serves static files by simply mapping URL paths to filesystem paths. For example, the request URL `/` would match the file `/public/index.html`, and the request URL `/products` would match the file `/public/products/index.html`, and so on. (URLs with filenames, like `/assets/main.css`, would also work the same; i.e, match the file `/public/assets/main.css`.)
 
 #### The `/server` Directory
 If you intend to have JavaScript files that handle dynamic routing on the server, place them in this directory.
@@ -142,7 +144,6 @@ In Webflo, we can implement routing at *vertical layers* between the client and 
 + [Vertical Routing Layers](#vertical-routing-layers)
 + [Horizontal Routing Steps](#horizontal-routing-steps)
 + [Route Handlers](#route-handlers)
-+ [Static Files](#static-files)
 
 #### Vertical Routing Layers
 Each directory discussed in the [Project Layout](#project-layout) section above lives at a point on a vertical path between the client and the server. Here's that layout now in the order of request/response flow.
@@ -306,8 +307,5 @@ Parameter passing is a great way to implement one source of truth for subsequent
 
 ##### The `process` Object
 When called, route handlers recieve very useful information about the ongoing HTTP process. This and a few other metadata are passed together as an object into the first parameter of the handler - the `process` parameter.
-
-#### Static Files
-Webflo also lets us follow a layout pattern that maps URL paths to filesystem paths. We'd expect this behaviour for static files laid out in the `/public` directory. For example, the request URL `/` would be expected to find a file at `/public/index.html`, and the request URL `/products` would be expected to find a file at `/public/products/index.html`, and so on. (URLs with filenames, like `/assets/main.css`, would also be expected to work the same; i.e, find a file at `/public/assets/main.css`.)
 
 ### HTTP Requests and Responses
