@@ -42,7 +42,7 @@ SELECT post_title, users.fname AS author_name FROM posts
 LEFT JOIN users ON users.id = posts.author_id;
 ```
 
-...but with an object-oriented syntax for relationships...
+...but with an object-oriented syntax for relationships, built into the language...
 
 ```sql
 SELECT post_title, author_id->fname AS author_name FROM posts;
