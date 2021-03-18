@@ -35,7 +35,7 @@ Client.query('SELECT fname, lname FROM users').then(result => {
 ```
 
 ## The Language
-Objective SQL is the same familiar, powerful SQL language...
+Objective SQL is the same familiar, powerful SQL language you know...
 
 ```sql
 SELECT post_title, users.fname AS author_name FROM posts
@@ -50,19 +50,19 @@ SELECT post_title, author_id->fname AS author_name FROM posts;
 
 ...and that's SQL without the query complexity!
 
-[Learn more about the language](the-language) and see just what's possible. (DOCS coming soon.)
+[Learn more about the language](the-language) and see just what's possible with the *arrow* syntax. (DOCS coming soon.)
 
 ## The API
 Objective SQL also lets you work programmatically using a promise-based API.
 
-Here's the API version of the *[Basic Usage](#basic-usage)* query earlier:
+Here's the API version of the *[Basic Usage](#basic-usage)* query we started with:
 
 ```js
 // The Client.open() method below opens the "default" database at version "0"
 // More on this in the docs
 Client.open().then(async DB => {
 
-    // Next we get a handle to the "users" store (or table)
+    // We get a handle to the "users" store (or table)
     let userStore = await DB.open('users');
     
     // Then we run a query
@@ -110,8 +110,8 @@ Schema declaration is usually the first step to working with SQL. So, the `users
 
     // Schema created. DB ready for use...
     // So we populate with data... programmatically or via queries
-    let users = await DB.open('users', 'readwrite');
-    users.addAll([
+    let userStore = await DB.open('users', 'readwrite');
+    userStore.addAll([
         {fname: 'John', lname: 'Doe', email: 'john.doe@example.com', age: 33},
         {fname: 'James', lname: 'Smith', email: 'john.doe@example.com', age: 40},
     ]);
