@@ -76,7 +76,7 @@ webflo start
 
 > Now, if all you're creating is a static site, your work ends in this directory!
 
-Webflo serves static files by simply mapping URL paths to filesystem paths. For example, the request URL `/` (or `/index.html`) would match the file `/public/index.html`, and the request URL `/products` (or `/products/index.html`) would match the file `/public/products/index.html`, and so on. (URLs with filenames, like `/assets/main.css`, would also work the same; i.e, match the file `/public/assets/main.css`.)
+Webflo serves static files by simply mapping URL paths to filesystem paths. For example, the request URL `/` (or `/index.html`) would be mapped to the file `/public/index.html`, and the request URL `/products` (or `/products/index.html`) would be mapped to the file `/public/products/index.html`, and so on.
 
 #### The `/server` Directory
 If you intend to have JavaScript files that handle dynamic  on the server, place them in this directory.
@@ -92,9 +92,9 @@ Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://
 
 So, route handlers can both return *response data* of their own and act as a gateway for the request/response flow. As we will see shortly, response data returned from route handlers can either serve as *automatic JSON (API) responses* or get rendered into the default `/public/index.html` file and returned as a rendered *HTML response*.
 
-So far, with just two files - `/public/index.html` and `/server/index.js` - we can already return either of three responses for the URL `http://localhost:3000/`: a JSON API response, a static HTML response, a dynamically-rendered HTML response. Code examples ahead.
+So far, with just two files - `/public/index.html` and `/server/index.js` - we can already return either of three responses for the URL `http://localhost:3000/`: a JSON API response, a static HTML response, or a dynamically-rendered HTML response. Code examples ahead.
 
-> Now, if all you're creating is a traditional server-side application or simply an API backend, your work ends in this directory! Routing is covered in the next [section](#routing). And [here](learn/server-side-routing) are server-side routing examples.
+> Now, if all you're creating is a traditional server-side application or simply an API backend, your work ends in this directory! Routing is covered in [the next section](#routing). And [here](learn/server-side-routing) are server-side routing examples.
 
 #### The `/client` Directory
 If you intend to have JavaScript files that handle routing (e.g navigation requests) in the browser, place them in this directory.
@@ -110,7 +110,7 @@ webflo build
 
 > Client builds are covered later on. But let's assume for now that the generated JavaScript file is now included in the HTML page.
 
-Now, what happens is, when you navigate to, or try to navigate away from `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, this client-side route handler is hit first with the HTTP request. It then decides to either return an in-browser *response data* or simply allow the request to *flow* to the server - all while preventing the browser doing a page reload.
+Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, this client-side route handler is hit first with the HTTP request. It then decides to either return an in-browser *response data* that's rendered to the UI or simply allow the request to *flow* to the server - all while preventing the browser from performing a page reload.
 
 + -> enter `/client`
     + -> call `index.js`; continue?
@@ -122,7 +122,7 @@ As we will see, being able to either return an in-browser response data or act a
 
 At this point, with just three files - `/public/index.html`, `/server/index.js` and `/client/index.js` - we can already have either a static site, an API backend, a server-side app, a client-side app, or a combination of all of these. Code examples ahead.
 
-> Okay, if all you're creating is a client-side application, your work ends in this directory! Routing is covered in the next [section](#routing). And [here](learn/client-side-routing) are client-side routing examples.
+> Okay, if all you're creating is a client-side application, your work ends in this directory! Routing is covered in [the next section](#routing). And [here](learn/client-side-routing) are client-side routing examples.
 
 #### The `/worker` Directory
 What happens here is quite advanced and you can ignore this until you really need it. But if you already know about application Service Workers and intend to enhance your app's client-side experience with Service Workers, Webflo lets you implement routing at the service-worker level, and you place your route handlers in this directory.
@@ -138,7 +138,7 @@ webflo build
 
 > Worker builds are covered later on. But let's assume for now that the generated JavaScript file is now part of the service worker file for your page.
 
-Now, what happens is, when you navigate to, or try to navigate away from `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, *and the HTTP navigation request is passed on from the initial client-side route handler `/client/index.js`, where exists*, the request next hits this worker-level route handler. This handler then decides to either return an in-browser *response data* or simply allow the request to finally *flow* to the server.
+Now, what happens is, when you navigate to `http://localhost:3000/` (or `http://localhost:3000/index.html`) on your browser, *and the HTTP navigation request is passed on from the initial client-side route handler `/client/index.js`, where exists*, the request next enters the Service orker layer and hits this route handler. This handler then decides to either return an in-browser *response data* that's rendered to the UI or simply allow the request to finally *flow* to the server.
 
 + -> enter `/client` if exists
     + -> call `index.js`; continue?
@@ -150,7 +150,7 @@ Now, what happens is, when you navigate to, or try to navigate away from `http:/
 
 Woohoo! With a combition of just four files - `/public/index.html`, `/server/index.js`, `/client/index.js` and `/worker/index.js` - we can already have any type of application with great offline experiences.
 
-> It is even just possible to build an entire app out of the `/worker` directory alone! Routing is covered in the next [section](#routing). And [here](learn/worker-level-routing) are worker-level routing examples. Service Workers are covered in detail in [the Progressive Web Apps (PWA) tutorial](learn/progressive-web-apps).
+> It is even just possible to build an entire app out of the `/worker` directory alone, if all you're building is a client-side, offline-capable app! Routing is covered in [the next section](#routing). And [here](learn/worker-level-routing) are worker-level routing examples. Service Workers are covered in detail in [the Progressive Web Apps (PWA) tutorial](learn/progressive-web-apps).
 
 ### Routing
 As seen, Webflo lets us follow the traditional filesystem layout for a project. The concept of routing is simply drawn on this layout. It is all about the *request/response flow and what happens along the path it takes*. Webflo's *skillfulness with flows* is probabbly the best thing about its name.
