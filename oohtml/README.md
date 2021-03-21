@@ -26,7 +26,7 @@ _before: webflo
 > This entire documentation is currently being improved on.
 
 ## Features
-OOHTML proposes five new features for native implementation to make common UI design terminologies possible without external tooling. These features may be used individually or together to improve how we author the UI. Here is an overview:
+OOHTML brings five new features that make common UI design terminologies possible without external tooling. These features may be used individually or together to improve how we author the UI. Here is an overview:
 
 + [HTML Modules](#html-modules)
 + [HTML Imports](#html-imports)
@@ -34,12 +34,10 @@ OOHTML proposes five new features for native implementation to make common UI de
 + [The State API](#the-state-api)
 + [Subscript](#subscript)
 
-> OOHTML is currently available through a [polyfill](polyfill). Be sure to check polyfill support in each feature.
-
 ### HTML Modules
 HTML Modules are a way to implement reusable HTML markup using the *module*, *import* and *export* paradigm. This feature establishes the standard `<template>` element as the module infrastructure for HTML and introduces new attributes, properties and events that make that work.
 
-Every module has a `name` attribute - the module ID, and their contents are simply regarded as *exports*.
+Every module is a regular `<template>` element with a `name` attribute - *the module ID*, and the contents if a module are simply regarded as *exports*.
 
 ```html
 <head>
@@ -120,9 +118,9 @@ The contents of the remote file automatically become the template's content on l
 ### HTML Imports
 HTML Imports are a declarative way to *import* reusable snippets from HTML Modules into slots in the main document.
 
-> Note that this is not the depreciated HTML Imports that earlier shipped with Web Components.
+> Note that this is not the same as the HTML Imports that earlier shipped with Web Components.
 
-An `<import>` element in the `<body>` area simply points to a module to *place* one of its exports.
+Here, an `<import>` element in the `<body>` area simply points to a module to *place* one of its exports.
 
 ```html
 <body>
@@ -145,7 +143,9 @@ Resolution takes place and the `<import>` element is replaced by all of the impo
 </body>
 ```
 
-It is also possible to define the *module ID* on a regular element to control the `<import>` elements within the block.
+The `<import>` stands by somewhere so that it can return to its slot in the event that all of the imported ccontents are removed. Details ahead.
+
+Now, it is possible to define one *module ID* on a regular element for use by one or more `<import>` elements within the block.
 
 ```html
 <body>
@@ -195,7 +195,7 @@ The following modular markup implements its IDs in namespaces:
 </article>
 ```
 
-The above gives us a conceptual model of repeating objects:
+Namespaced HTML gives us many benefits. For example, the above gives us a conceptual model of repeating objects:
 
 ```html
 continents
@@ -223,7 +223,7 @@ let aboutAsia = continents.namespace.asia.namespace.about;
 
 We get a document structure that's easier to reason about and that translates to a more consistent, bankable API.
 
-> We find that Namespacing helps us to (1) write collision-free IDs and selectors, and (2) by means of the Namespace API, minimize selector-based DOM traversal (e.g `el.namespace.some_id` vs `el.querySelector('#some_id')`). Much of our code in the examples below will now use the `namespace` attribute in markup and the `.namespace` property in JS.
+Namespaced HTML also helps us to (1) write collision-free IDs and selectors, and (2) by means of the Namespace API, minimize selector-based DOM traversal (e.g `el.namespace.some_id` vs `el.querySelector('#some_id')`). Much of our code in the examples below will now use the `namespace` attribute in markup and the `.namespace` property in JS.
 
 *Details are in the [Namespaced HTML](namespaced-html) documentation. Learn more about the convention, Namespaced Selectors, API, observability, and the polyfill support.*
 
@@ -391,13 +391,10 @@ Leveraging this reactivity, here's how we could implement the `<my-collapsible>`
 
 *Details are in the [Subscript](subscript) documentation. Learn more about the event-based runtime, deep observability, bindings, the API, error handling, and the polyfill support.*
 
-## Examples
+## Getting Started
+All it takes to use OOHTML is include the [polyfill](polyfill) on a page. You can begin writing modular, reusable, reactive HTML right away! You definitely want to visit the documentation for each feature and try everything out by pasting the code examples and running them right on your browser.
+
 We're putting together a collection of examples in the [examples](examples) section.
-
-## Next Steps
-This introduction to OOHTML hopefully gives you a good overview of what each feature does. It becomes even more exciting when you check each feature out in detail. You definitely also want to try everything out by including the OOHTML polyfill on a blank page, pasting the code examples and running them right on your browser. Your personal experience may have something to give back in some way to OOHTML's development.
-
-Also, if you'd like us to feature your usecase with OOHTML, do reach out via any of the means mentioned below.
 
 ## Supporting OOHTML
 *Platform feature* proposals aren't the easiest thing in the world!
@@ -406,10 +403,10 @@ Also, if you'd like us to feature your usecase with OOHTML, do reach out via any
 
     If you indeed have a usecase for all, or aspects, of OOHTML, or have some opinions, you should please join the discussion at the [WICG](https://discourse.wicg.io/t/proposal-chtml/4716).
     
-    If you are building something early with it (just as we are building [webqit.io](//webqit.io) with it), we'd like to hear from you via any means - [WICG](https://discourse.wicg.io/t/proposal-chtml/4716), [email - oxharris.dev@gmail.com], [Github Discussions](https://github.com/webqit/oohtml/discussions).
-+ They have to go through a million iterations! And much in dollars go into that!
+    If you are building something early with it (just as we are building [webqit.io](//webqit.io) with it), we'd like to hear from you via any means - [WICG](https://discourse.wicg.io/t/proposal-chtml/4716), [email - webqit.io@gmail.com], [Github Discussions](https://github.com/webqit/oohtml/discussions). Your personal experience working with OOHTML may have something to give back in some way to its development. You may also like us to feature your work with OOHTML.
++ Platform feature proposals also have to go through a million iterations! And much in dollars go into that!
 
-    If you could help in some way, we'd be more than glad! If you'd like to find out what your $1 could do for us and what's in for you, do indeed reach out at oxharris.dev@gmail.com.
+    If you could help in some way, we'd be more than glad! If you'd like to find out what your $1 could do for us and what's in for you, do indeed reach out at webqit.io@gmail.com.
 
 ## Design Goals
 See the [features explainer](explainer).
