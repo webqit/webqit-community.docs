@@ -174,7 +174,7 @@ Each directory discussed in the [Project Layout](#project-layout) section above 
 As seen in the [Project Layout](#project-layout) section above, the type of application you're building will determine where you choose to implement routing. It could be just client-side routing, just server-side routing or fullstack routing in any combination of it, as we will see soon.
 
 #### Horizontal Routing Steps
-Each level of an URL path (e.g `/a/b/c`) is a place to implement a route handler. If we chose to do routing in the `/server` directory, for a example, the request URL `/` would be mapped to a route handler at `/server/index.js`, and the request URL `/products` would be mapped to a route handler at `/server/products/index.js`, and so on.
+In a routing directory, we can lay out route handlers in a way that represents the structure of the URLs that they will handle. If we chose to do routing in the `/server` directory, for a example, we would place a route handler at `/server/index.js` to handle the request URL `/`, and a route handler at `/server/products/index.js` to handle the request URL `/products`, and so on. So, each level of an URL path (e.g `/a/b/c`) is a place to implement a route handler.
 
 But in Webflo, requests are processed in steps along an URL path, that is, made to *flow* through every handler in the route path until it hits the final handler. Here, the request URL `/products` would actually flow like this:
 
