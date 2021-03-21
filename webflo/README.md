@@ -176,7 +176,7 @@ As seen in the [Project Layout](#project-layout) section above, the type of appl
 #### Horizontal Routing Steps
 In a routing directory, we can lay out route handlers in a way that represents the structure of the URLs that they will handle. If we chose to do routing in the `/server` directory, for a example, we would place a route handler at `/server/index.js` to handle the request URL `/`, and a route handler at `/server/products/index.js` to handle the request URL `/products`, and so on. So, each level of an URL path (e.g `/a/b/c`) is a place to implement a route handler.
 
-But in Webflo, requests are processed in steps along an URL path, that is, made to *flow* through every handler in the route path until it hits the final handler. Here, the request URL `/products` would actually flow like this:
+But in Webflo, requests are processed in steps along an URL path, that is, are made to *flow* through every handler in the route path until it hits the final handler. Here, the request URL `/products` would actually flow like this:
 
 + -> enter `/server`
     + -> call `/index.js`; continue?
