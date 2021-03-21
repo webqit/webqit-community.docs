@@ -396,7 +396,7 @@ All it takes to use OOHTML is include the [polyfill](polyfill) on a page. You ca
 
 We're putting together a collection of examples in the [examples](examples) section.
 
-## Supporting OOHTML
+## Getting Involved
 *Platform feature* proposals aren't the easiest thing in the world!
 
 + They have to be something everyone can agree on! This makes us want to hear from you.
