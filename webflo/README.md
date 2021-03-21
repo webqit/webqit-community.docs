@@ -79,7 +79,7 @@ webflo start
 Webflo serves static files by simply mapping URL paths to filesystem paths. For example, the request URL `/` (or `/index.html`) would be mapped to the file `/public/index.html`, and the request URL `/products` (or `/products/index.html`) would be mapped to the file `/public/products/index.html`, and so on.
 
 #### The `/server` Directory
-If you intend to have JavaScript files that handle dynamic  on the server, place them in this directory.
+If you intend to have JavaScript files that handle dynamic routing on the server, place them in this directory.
 
 + `/server`
     + `/index.js` - *This is a server-side route handler.*
