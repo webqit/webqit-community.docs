@@ -1,0 +1,11 @@
+[
+    {
+        "selector":["Compute"],
+        "title":"Compute",
+        "desc":"Explore tools that bring syntactic sugar to JavaScript development."
+    }, {
+        "selector":["Database"],
+        "title":"Database",
+        "desc":"Find tools that explore new possibilities with browser technologies."
+    }
+]
