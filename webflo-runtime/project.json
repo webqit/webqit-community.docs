@@ -1,0 +1,15 @@
+{
+    "title": "Webflo Runtime",
+    "icon": "app-indicator",
+    "desc": "The universal JavaScript framework for Web, Mobile, and API Backends; one tool for every step of the way - from development, to deployment, to continous delivery.",
+    "desc2": "Start on a clean slate, in zero-abstraction, zero-config, and zero-dependency. Develop and deploy anything from a simple <code>'Hello World!'</code> to a rich web and mobile experience.",
+    "categories": ["Featured", "Compute"],
+    "tags": ["Web", "Mobile", "API Backends", "Dev Server", "Production Server", "GIT Workflow"],
+    "quickstart": {
+        "type": "form", 
+        "directive": "Enter your repository URL", 
+        "cta": {"text": "Get started for free"}
+    },
+    "_after": "oohtml",
+    "outline": []
+}

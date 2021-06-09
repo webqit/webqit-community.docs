@@ -7,9 +7,10 @@
             "name": "default:md-loader",
             "argument/flag": true,
             "args": {
-                "flavor": "github",
-                "outline_generation": "outline",
-                "code_highlighting": "1"
+                "base_url": "/tooling/",
+                "code_highlighting": "1",
+                "outline_generation":"create",
+                "flavor": "github"
             }
         }
     ],
@@ -25,6 +26,6 @@
     "EXPORT_ID_ATTR": "export",
     "MAX_DATA_URL_SIZE": 1024,
     "ASSETS_PUBLIC_BASE": "/",
-    "loader": false,
-    "__advanced": true
+    "loader": true,
+    "__advanced": false
 }
