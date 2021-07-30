@@ -2,10 +2,10 @@
     {
         "selector":["Compute"],
         "title":"Compute",
-        "desc":"Explore tools that bring syntactic sugar to JavaScript development."
+        "desc":"Start a serverless backend for your application workloads."
     }, {
         "selector":["Database"],
         "title":"Database",
-        "desc":"Find tools that explore new possibilities with browser technologies."
+        "desc":"Start a cloud database solution for your application data."
     }
 ]

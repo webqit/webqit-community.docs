@@ -1,87 +1,12 @@
 
+	<div exportgroup="readme">
+
+		<h2 id="objective-db">Objective DB</h2>
+<p>Provision a database in one click and get instant data APIs for your app! Speak the same Objective SQL as you would with a local DB. Unlock a whole new experience with an intuitive dashboard.</p>
+<p>Watch this space for when we come in beta.</p>
+
+	</div>
+
 	
-
-	<template name="docs">
-		<div exportgroup="readme">
-
-			<h1 id="objective-sql">Objective SQL</h1>
-<!-- BADGES/ -->
-<p><span class="badge-npmversion"><a href="https://npmjs.org/package/@webqit/objective-sql" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@webqit/objective-sql.svg" alt="NPM version" /></a></span><br />
-<span class="badge-npmdownloads"><a href="https://npmjs.org/package/@webqit/objective-sql" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@webqit/objective-sql.svg" alt="NPM downloads" /></a></span></p>
-<!-- /BADGES -->
-<p><a href="https://github.com/webqit/objective-sql">Objective SQL</a> is a fullstack, object-oriented SQL for modern apps; one language and one API over diverse data storage technologies - from in-memory storage, to the client-side IndexedDB, to the server-side database like MySQL.</p>
-<p><em>Speak the same familiar SQL language, this time, with an object-oriented convention for relationships. Or query your data programmatically using a succinct API.</em></p>
-<blockquote>
-  <p><a href="https://github.com/webqit/objective-sql">Visit project repo</a>.</p>
-</blockquote>
-<h2 id="basic-usage">Basic Usage</h2>
-<p>Objective SQL works both in node.js and in the browser. Here's a node.js example:</p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// Import the inbuilt Object Storage library as the query client</span>
-<span class="hljs-keyword">import</span> { ODB <span class="hljs-keyword">as</span> Client } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/objective-sql&#x27;</span>;
-
-<span class="hljs-comment">// Run a query</span>
-Client.query(<span class="hljs-string">&#x27;SELECT fname, lname FROM users&#x27;</span>).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(result);
-});</code></pre>
-<h2 id="the-language">The Language</h2>
-<p>Objective SQL is the same familiar, powerful SQL language you know…</p>
-<pre><code class="hljs sql language-sql"><span class="hljs-keyword">SELECT</span> post_title, users.fname <span class="hljs-keyword">AS</span> author_name <span class="hljs-keyword">FROM</span> posts
-<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> users <span class="hljs-keyword">ON</span> users.id <span class="hljs-operator">=</span> posts.author_id;</code></pre>
-<p>…but with an object-oriented syntax for relationships, built into the language…</p>
-<pre><code class="hljs sql language-sql"><span class="hljs-keyword">SELECT</span> post_title, author_id<span class="hljs-operator">-</span><span class="hljs-operator">&gt;</span>fname <span class="hljs-keyword">AS</span> author_name <span class="hljs-keyword">FROM</span> posts;</code></pre>
-<p>…and that's SQL without the query complexity!</p>
-<p><a href="/tooling/objective-db/docs/the-language">Learn more about the language</a> and see just what's possible with the <em>arrow</em> syntax. (DOCS coming soon.)</p>
-<h2 id="the-api">The API</h2>
-<p>Objective SQL also lets us work programmatically using a promise-based API.</p>
-<p>Here's the API version of the <em><a href="/tooling/objective-db/docs/#basic-usage">Basic Usage</a></em> query we started with:</p>
-<pre><code class="hljs js language-js"><span class="hljs-comment">// The Client.open() method below opens the &quot;default&quot; database at version &quot;0&quot;</span>
-<span class="hljs-comment">// More on this in the docs</span>
-Client.open().then(<span class="hljs-keyword">async</span> DB =&gt; {
-
-    <span class="hljs-comment">// We get a handle to the &quot;users&quot; store (or table)</span>
-    <span class="hljs-keyword">let</span> userStore = <span class="hljs-keyword">await</span> DB.open(<span class="hljs-string">&#x27;users&#x27;</span>);
-
-    <span class="hljs-comment">// Then we run a query</span>
-    <span class="hljs-keyword">let</span> result = <span class="hljs-keyword">await</span> userStore.getAll();
-    <span class="hljs-built_in">console</span>.log(result);
-});</code></pre>
-<p><a href="/tooling/objective-db/docs/the-api">Learn more about the API</a> and see just what's possible. (DOCS coming soon.)</p>
-<h2 id="storage">Storage</h2>
-<p>Objective SQL lets us decide between underlying storage technologies without changing code.</p>
-<p>While we've used the inbuilt in-memory store in the examples above, we could easily switch to a persistent storage engine, like the IndexedDB that ships with browsers, by simply swiping in the appropriate client in the <code>import</code> statement…</p>
-<pre><code class="hljs js language-js"><span class="hljs-keyword">import</span> {
-    <span class="hljs-comment">//ODB as Client,</span>
-    IDB <span class="hljs-keyword">as</span> Client,
-    <span class="hljs-comment">//SQL as Client,</span>
-} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@webqit/objective-sql&#x27;</span>;</code></pre>
-<p>…and the rest of the code can go on "as is". </p>
-<p><a href="/tooling/objective-db/docs/storage">Learn more about Storage</a> and see just what's possible. (DOCS coming soon.)</p>
-<h2 id="schemas">Schemas</h2>
-<p>Objective SQL completely embraces the schema idea of SQL, and offers one simple, universal way to write these schemas that describe your data - whatever the underlying storage engine.</p>
-<p>Schema declaration is usually the first step to working with SQL. So, the <code>users</code> table we've used in the examples above should already have been declared. Here's how easy it is to do that:</p>
-<pre><code class="hljs js language-js">(<span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> DB = <span class="hljs-keyword">await</span> Client.create([{
-        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;users&#x27;</span>,
-        <span class="hljs-attr">primaryKey</span>: <span class="hljs-string">&#x27;id&#x27;</span>,
-        <span class="hljs-attr">autoIncrement</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">fields</span>: {<span class="hljs-attr">id</span>: {}, <span class="hljs-attr">fname</span>: {}, <span class="hljs-attr">lname</span>: {}, <span class="hljs-attr">email</span>: {}, <span class="hljs-attr">age</span>:{<span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;int&#x27;</span>, <span class="hljs-attr">default</span>:<span class="hljs-number">0</span>},},
-        <span class="hljs-attr">uniqueKeys</span>: {<span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;email&#x27;</span>},
-    }, {
-        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;posts&#x27;</span>,
-        ...
-    }]);
-
-    <span class="hljs-comment">// Schema created. DB ready for use...</span>
-    <span class="hljs-comment">// So we populate with data... programmatically or via queries</span>
-    <span class="hljs-keyword">let</span> userStore = <span class="hljs-keyword">await</span> DB.open(<span class="hljs-string">&#x27;users&#x27;</span>, <span class="hljs-string">&#x27;readwrite&#x27;</span>);
-    userStore.addAll([
-        {<span class="hljs-attr">fname</span>: <span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-attr">lname</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;john.doe@example.com&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">33</span>},
-        {<span class="hljs-attr">fname</span>: <span class="hljs-string">&#x27;James&#x27;</span>, <span class="hljs-attr">lname</span>: <span class="hljs-string">&#x27;Smith&#x27;</span>, <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;john.doe@example.com&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">40</span>},
-    ]);
-})();</code></pre>
-<p><a href="/tooling/objective-db/docs/schemas">Learn more about Schemas</a> and see just what's possible. (DOCS coming soon.)</p>
-
-		</div>
-	</template>
 
 	
