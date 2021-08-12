@@ -11,7 +11,7 @@
             "args": {
                 "base_url": "/cloud/",
                 "code_highlighting": "1",
-                "outline_generation":"create",
+                "outline_generation": "create",
                 "flavor": "github"
             }
         }
@@ -20,12 +20,14 @@
         "."
     ],
     "CREATE_OUTLINE_FILE": "create",
-    "TEMPLATE_EXT": "",
+    "MODULE_EXT": "",
     "MODULE_ID_ATTR": "name",
     "EXPORT_MODE": "attribute",
     "EXPORT_GROUP_ATTR": "exportgroup",
     "EXPORT_ELEMENT": "html-export",
     "EXPORT_ID_ATTR": "export",
+    "TEMPLATE_EXT": "",
     "loader": true,
-    "__advanced": false
+    "__advanced": true,
+    "__advanced_oohtml": true
 }
