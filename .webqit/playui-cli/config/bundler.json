@@ -1,15 +1,15 @@
 {
     "ENTRY_DIR": "./[name]",
     "OUTPUT_FILE": "./bundle.html",
-    "ASSETS_STORAGE_BASE": "../../../../public/html/cloud/[name]",
-    "ASSETS_PUBLIC_BASE": "/html/cloud/[name]",
+    "ASSETS_STORAGE_BASE": "../../../../public/html/community/[name]",
+    "ASSETS_PUBLIC_BASE": "/html/community/[name]",
     "MAX_DATA_URL_SIZE": 1024,
     "LOADERS": [
         {
             "name": "default:md-loader",
             "argument/flag": true,
             "args": {
-                "base_url": "/cloud/",
+                "base_url": "/community/",
                 "code_highlighting": "1",
                 "outline_generation":"create",
                 "flavor": "github"
